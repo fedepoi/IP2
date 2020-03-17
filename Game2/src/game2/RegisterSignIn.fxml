@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="page" prefHeight="450.0" prefWidth="800.0" styleClass="panel" stylesheets="@game2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game2.FXMLDocumentController">
+   <children>
+      <TextField fx:id="DontHaveAccountText" editable="false" layoutX="30.0" layoutY="142.0" prefHeight="44.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Don't have an account? ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="CreateAccountText" editable="false" layoutX="30.0" layoutY="186.0" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Create one to start a game!">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="RegisterBeginning" layoutX="46.0" layoutY="244.0" mnemonicParsing="false" onAction="#openLogin" prefHeight="27.0" prefWidth="94.0" styleClass="trans-btn-white-border" stylesheets="@../../game2.css" text="Register" textFill="#f5f0f0" />
+      <TextField fx:id="HaveAccountText" editable="false" layoutX="520.0" layoutY="141.0" prefHeight="44.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Already have an account? ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="SignInToAccountText" editable="false" layoutX="520.0" layoutY="185.0" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign in to your account">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="SignInBeginning" layoutX="646.0" layoutY="244.0" mnemonicParsing="false" onAction="#openRegister" prefHeight="27.0" prefWidth="94.0" styleClass="trans-btn-white-border" stylesheets="@../../game2.css" text="Sign in" textFill="#f5f0f0" />
+      <VBox fx:id="movingPanel" layoutX="30.0" layoutY="24.0" prefHeight="400.0" prefWidth="350.0" styleClass="white-panel" stylesheets="@../../game2.css" />
+   </children>
+</AnchorPane>

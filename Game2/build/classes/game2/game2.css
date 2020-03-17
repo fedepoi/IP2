@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16 Μαρ 2020, 5:56:45 μμ
+    Author     : HP
+*/
+.parent{
+    -fx-background-color: trasparent;
+}
+
+.panel{
+    -fx-background-color:#333333;  
+}
+
+.trans-btn-white-border{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+
+.trans-btn-white-border:hover{
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #333333;
+}
+
+.white-panel{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+}
+.details_box{
+    -fx-background-color: transparent;
+    -fx-border-color: #DEDEE4;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+.details{
+    -fx-background-color: transparent;
+}
+
+
+.register_btn{
+    -fx-border-color: #F78C7B;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #333333;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1.5px;
+}
+
+.register_btn:hover{
+    -fx-border-color: #F78C7B;
+    -fx-background-color: #F78C7B;
+    -fx-text-fill: #ffffff;
+}
+
+
