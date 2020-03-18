@@ -32,9 +32,9 @@ public class DBConnect {
             
             }
     
-    public void registerSQL(String name , String sur,String usern,String pass) {
+    public void registerSQL(String name , String sur,String mail,String pass) {
     
-        String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`) values ('"+name+"',"+"'"+sur+"',"+"'"+usern+"',"+"'"+pass+"')";
+        String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`) values ('"+name+"',"+"'"+sur+"',"+"'"+mail+"',"+"'"+pass+"')";
         try {
             //rs=st.executeQuery(query);
             st.executeUpdate(query);
@@ -53,6 +53,23 @@ public class DBConnect {
         
     
     }
+    
+    public void signInSQL(String mail,String password) throws SQLException
+    {
+    String query ="select email, password FROM usertable where email='"+mail+"'"+" and password ='"+password+"';";
+        try {
+            rs=st.executeQuery(query);
+            System.out.println("retrievin category data from database...");
+            while (rs.next())
+            {
+            String resultMail= rs.getString("email");
+            String resultPassword = rs.getString("password");
+            System.out.println(resultMail+resultPassword);
+            }            
+        } catch (SQLException ex) {
+           System.out.println("error :"+ex);
+        }
+        }
     
     
     

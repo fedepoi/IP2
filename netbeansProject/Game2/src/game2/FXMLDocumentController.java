@@ -68,6 +68,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Button RegisterButton;
+    @FXML
+    private VBox SignInBox;
+
+    @FXML
+    private Label SingInLabel;
+
+    @FXML
+    private JFXTextField EmailTextSignIn;
+
+    @FXML
+    private JFXTextField PasswordTextSignIn;
+
+    @FXML
+    private Button SignIn;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -119,13 +133,21 @@ public class FXMLDocumentController implements Initializable {
         });
     }
     
-    
+    @FXML
     public void register() throws SQLException
     {
     DBConnect connection= new DBConnect();
     connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText());
     }
+    @FXML
+    public void signIn() throws SQLException
+    {
+    DBConnect connection = new DBConnect();
+    connection.signInSQL(EmailTextSignIn.getText(), PasswordTextSignIn.getText());
     
+    
+    
+    }
     
     
     
