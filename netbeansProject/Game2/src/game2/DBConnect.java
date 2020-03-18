@@ -65,6 +65,20 @@ public class DBConnect {
             String resultMail= rs.getString("email");
             String resultPassword = rs.getString("password");
             System.out.println(resultMail+resultPassword);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    //gfgasjdgfkawjeygfkjasefbjkasdvbkeajsvgbkjevbkjwvbkjasrvbkjasrvbkjasbv
             }            
         } catch (SQLException ex) {
            System.out.println("error :"+ex);
