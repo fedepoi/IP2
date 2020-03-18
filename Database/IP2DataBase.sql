@@ -37,7 +37,6 @@ drop table if exists scores;
 create table scores (
 scoreId int (3) not null auto_increment,
 userId int(3),
-scoreDate date,
 score int(3),
 start_time DATETIME(6) NOT NULL,
 end_time DATETIME(6) NOT NULL,
