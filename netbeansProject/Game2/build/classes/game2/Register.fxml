@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="RegisterBox" prefHeight="400.0" prefWidth="350.0" styleClass="white-panel" stylesheets="@game2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game2.FXMLDocumentController">
+<VBox fx:id="RegisterBox" prefHeight="400.0" prefWidth="350.0" styleClass="white-panel" stylesheets="@game2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game2.FXMLDocumentController">
    <children>
       <Label fx:id="RegisterLabel" text="Register" textFill="#d31c1c">
          <font>
@@ -19,29 +19,29 @@
             <Insets left="15.0" right="15.0" top="50.0" />
          </VBox.margin>
       </Label>
-      <JFXTextField id="fnameTextField" fx:id="FirstNameTextReg" focusColor="#f78c7b" labelFloat="true" promptText="First Name" unFocusColor="#d0caca">
+      <JFXTextField fx:id="FirstNameTextReg" focusColor="#f78c7b" labelFloat="true" promptText="First Name" unFocusColor="#d0caca">
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </JFXTextField>
-      <JFXTextField id="lastNameTextField" fx:id="LastNameTextReg" focusColor="#f78c7b" labelFloat="true" promptText="Last Name" unFocusColor="#d0caca">
+      <JFXTextField fx:id="LastNameTextReg" focusColor="#f78c7b" labelFloat="true" promptText="Last Name" unFocusColor="#d0caca">
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </JFXTextField>
-      <JFXTextField id="emailTextField" fx:id="EmailTextReg" focusColor="#f78c7b" labelFloat="true" promptText="Email" unFocusColor="#d0caca">
+      <JFXTextField fx:id="EmailTextReg" focusColor="#f78c7b" labelFloat="true" promptText="Email" unFocusColor="#d0caca">
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </JFXTextField>
-      <JFXTextField id="passwordextfield" fx:id="PasswordTextReg" focusColor="#f78c7b" labelFloat="true" promptText="Password" unFocusColor="#d0caca">
+      <JFXTextField fx:id="PasswordTextReg" focusColor="#f78c7b" labelFloat="true" promptText="Password" unFocusColor="#d0caca">
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </JFXTextField>
       <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox id="adminCheckBox" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="17.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="Admin" HBox.hgrow="ALWAYS">
+            <CheckBox alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="17.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="Admin" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="140.0" right="-150.0" top="63.0" />
                </HBox.margin>
@@ -49,7 +49,7 @@
                   <Insets />
                </opaqueInsets>
             </CheckBox>
-            <Button id="registerButton" fx:id="RegisterButton" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@../../game2.css" text="Register" HBox.hgrow="ALWAYS">
+            <Button fx:id="RegisterButton" mnemonicParsing="false" onAction="#openHome" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@../../game2.css" text="Register" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="120.0" right="15.0" top="55.0" />
                </HBox.margin>
