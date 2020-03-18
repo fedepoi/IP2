@@ -5,8 +5,10 @@
  */
 package game2;
 
+import com.jfoenix.controls.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
@@ -46,11 +48,26 @@ public class FXMLDocumentController implements Initializable {
     @FXML 
     AnchorPane page;
     
+     @FXML
+    private VBox RegisterBox;
+
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    private Label RegisterLabel;
+
+    @FXML
+    private JFXTextField FirstNameTextReg;
+
+    @FXML
+    private JFXTextField LastNameTextReg;
+
+    @FXML
+    private JFXTextField EmailTextReg;
+
+    @FXML
+    private JFXTextField PasswordTextReg;
+
+    @FXML
+    private Button RegisterButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -101,6 +118,35 @@ public class FXMLDocumentController implements Initializable {
             }
         });
     }
+    
+    
+    public void register() throws SQLException
+    {
+    DBConnect connection= new DBConnect();
+    connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText());
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

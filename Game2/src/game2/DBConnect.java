@@ -32,7 +32,7 @@ public class DBConnect {
             
             }
     
-    public void getData(String name , String sur,String usern,String pass) {
+    public void registerSQL(String name , String sur,String usern,String pass) {
     
         String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`) values ('"+name+"',"+"'"+sur+"',"+"'"+usern+"',"+"'"+pass+"')";
         try {
