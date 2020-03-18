@@ -149,9 +149,9 @@ INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('ROM', '22'
 INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('CPU', '22','0');
 
 INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Asdf jkl;', '23','1');
-INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Asdf jkl;', '23','0');
-INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Asdf jkl;', '23','0');
-INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Asdf jkl;', '23','0');
+INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('qwerty jkl;', '23','0');
+INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Asdf poi;', '23','0');
+INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('asdfghjkl;', '23','0');
 
 INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Code or program', '24','1');
 INSERT INTO `answers` (`answerdesc`, `questionId`,`correct`) VALUES ('Apple', '24','0');
