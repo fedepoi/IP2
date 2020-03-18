@@ -1,0 +1,3 @@
+SELECT userchoice.userId,userchoice.questionId,userchoice.answerId , answers.correct 
+from userchoice 
+INNER JOIN answers on userchoice.answerId=answers.answerId
