@@ -145,7 +145,7 @@ public class FXMLDocumentController implements Initializable {
     DBConnect connection = new DBConnect();
     connection.signInSQL(EmailTextSignIn.getText(), PasswordTextSignIn.getText());
     
-    
+  
     
     }
     
