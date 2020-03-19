@@ -5,6 +5,7 @@
  */
 package game2;
 
+import Model.User;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,7 @@ public class DBConnect {
     public DBConnect () throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ip2final","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ip2d","root","");
             st= conn.createStatement();
             
             
@@ -36,56 +37,43 @@ public class DBConnect {
     
         String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`) values ('"+name+"',"+"'"+sur+"',"+"'"+mail+"',"+"'"+pass+"')";
         try {
-            //rs=st.executeQuery(query);
             st.executeUpdate(query);
-            //  System.out.println("retrievin category data from database...");
-            //while (rs.next())
-            //{
-            //String id = rs.getString("categoryId");
-            //String name = rs.getString("categoryName");
-            //System.out.println(id+name);
-            
-            
-            //}
-        } catch (SQLException ex) {
+     } catch (SQLException ex) {
            System.out.println(  "error"+ex);
         }
         
     
     }
     
-    public void signInSQL(String mail,String password) throws SQLException
+    public User signInSQL(String mail,String password) throws SQLException
     {
-    String query ="select email, password FROM usertable where email='"+mail+"'"+" and password ='"+password+"';";
+    String query ="select * FROM usertable where email='"+mail+"'"+" and password ='"+password+"';";
+    int id;
+    String name;
+    String surname;
+    String resultMail;
+    String resultPassword;
+    boolean admin;
         try {
             rs=st.executeQuery(query);
             System.out.println("retrievin category data from database...");
             while (rs.next())
             {
-            String resultMail= rs.getString("email");
-            String resultPassword = rs.getString("password");
-            System.out.println(resultMail+resultPassword);
+            id = rs.getInt("userId");
+            name=rs.getString("firstName");
+            surname=rs.getString("lastName");
+            resultMail= rs.getString("email");
+            resultPassword = rs.getString("password");
+            admin=rs.getBoolean("admin");
+            System.out.println(resultMail+resultPassword+"...............");
+            User user = new User(id, name, surname, resultMail, resultPassword, admin);
+         return user;
+            }      
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-    //gfgasjdgfkawjeygfkjasefbjkasdvbkeajsvgbkjevbkjwvbkjasrvbkjasrvbkjasbv
-            }            
         } catch (SQLException ex) {
            System.out.println("error :"+ex);
         }
-        }
-    
-    
-    
-    
+        return null;
+        
+        }  
 }

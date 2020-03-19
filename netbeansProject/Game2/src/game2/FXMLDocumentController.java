@@ -220,13 +220,7 @@ public class FXMLDocumentController implements Initializable {
             
             cancelQuestion.setOnAction(e);
             
-            r.getChildren().add(cancelQuestion);
-            
-            
-            
-  
-     
-          
+            r.getChildren().add(cancelQuestion);      
     }
     
     @FXML
