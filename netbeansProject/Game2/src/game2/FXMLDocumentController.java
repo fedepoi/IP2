@@ -35,7 +35,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.TilePane;
+import javafx.scene.shape.Rectangle;
 import javax.swing.JCheckBox;
 
 
@@ -44,70 +46,39 @@ import javax.swing.JCheckBox;
  * @author HP
  */
 public class FXMLDocumentController implements Initializable {
-    
-    @FXML
-    private Label label;
-    
     @FXML
     private Parent root;
-    
     @FXML
     private VBox movingPanel;
-    
-    @FXML
-    private Button RegisterBeginning;
-    @FXML
-    private Button SignInBeginning;
     @FXML
     private AnchorPane page;
-    @FXML
-    private HBox MenuBar;
-    @FXML
-    private Button SettingsMenu;
-    @FXML
-    private Button ReportsMenu;
-    @FXML
-    private Button LogOut;
-    @FXML
-    private Button MathsImage;
-    @FXML
-    private Button answerMaths1;
-    @FXML
-    private Button answerMaths2;
-    @FXML
-    private Button answerMths3;
-    @FXML
-    private Button answerMths4;
-    @FXML
-    private Button nextQuestion;
     @FXML
     private Button cancelQuestion;
      @FXML
     private JFXTextField FirstNameTextReg;
-
     @FXML
     private JFXTextField LastNameTextReg;
-
     @FXML
     private JFXTextField EmailTextReg;
-
     @FXML
     private JFXTextField PasswordTextReg;
-      @FXML
+    @FXML
     private JFXTextField EmailTextSignIn;
-
     @FXML
     private JFXTextField PasswordTextSignIn;
     @FXML
-    private HBox HBoxregister;
-
+    private CheckBox checkBoxA;    
+ 
     @FXML
-    private CheckBox checkBoxA;
-
+    private TextArea textAreaQ;
     @FXML
-    private Button RegisterButton;
-  
+    private Button PlayB;
+
+
+
+
     
+
     private User user;
 
     
@@ -194,17 +165,22 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    private void openMaths(ActionEvent event){
+    private void openMaths(ActionEvent event) throws SQLException{
          try {
            Parent windowHome = FXMLLoader.load(getClass().getResource("QuizMaths.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           
        } catch (IOException ex) {
            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
        }    
-               
+         
+          
+      
+         
+         
     }
     @FXML
     private void openAlert(ActionEvent event){
@@ -244,15 +220,8 @@ public class FXMLDocumentController implements Initializable {
         int a;
         if (checkBoxA.isSelected()==true)
         {
-            a=1;
+          a=1;
         } else a=0;
-        
-        
-        
-        
-        
-        
-        
     DBConnect connection= new DBConnect();
     connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText(),a);
        
@@ -262,8 +231,15 @@ public class FXMLDocumentController implements Initializable {
     {
     DBConnect connection = new DBConnect();
     user=connection.signInSQL(EmailTextSignIn.getText(), PasswordTextSignIn.getText());
+    }
     
-  
+    @FXML
+    public void setQuestionInBox() throws SQLException
+    {
+        DBConnect connection=new DBConnect();
+           System.out.println( connection.getRandomQuestion(1));
+           String s=connection.getRandomQuestion(1);
+           textAreaQ.setText(s);
     
     }
     

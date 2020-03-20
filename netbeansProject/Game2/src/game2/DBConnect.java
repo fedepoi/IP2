@@ -7,6 +7,7 @@ package game2;
 
 import Model.User;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,6 +20,8 @@ public class DBConnect {
     private Statement st;
     private ResultSet rs;
     User user;
+    ArrayList category;
+    String randQuest;
     
     public DBConnect () throws SQLException {
         try {
@@ -62,6 +65,41 @@ public class DBConnect {
      }
     return this.user;
         }
+    
+    public ArrayList getCategorySQL() throws SQLException{
+        String query ="select categoryName from category";
+        rs=st.executeQuery(query);
+        while (rs.next())
+        {
+            String catName= rs.getString("categoryName");
+            category.add(catName);
+        }
+        return category;
+    }
+    
+    public String getRandomQuestion(int cat) throws SQLException
+    {
+        String query ="SELECT questions.questionDesc FROM questions\n" +
+"where categoryId="+cat+"\n" +
+"ORDER BY RAND()\n" +
+"LIMIT 1";
+        
+        rs=st.executeQuery(query);
+        
+        while(rs.next()){
+            this.randQuest=rs.getString("questionDesc");
+        
+        
+        
+        }
+    return randQuest;
+    
+    }
+    
+    
+    
+    
+    
     
     
 }
