@@ -5,6 +5,7 @@
  */
 package game2;
 
+import Model.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -95,6 +96,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private JFXTextField PasswordTextSignIn;
+    
+    private User user;
 
     
     
@@ -161,6 +164,7 @@ public class FXMLDocumentController implements Initializable {
            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
        }    
          signIn();
+         System.out.println(user.toString());
                
     }
     
@@ -234,7 +238,7 @@ public class FXMLDocumentController implements Initializable {
     public void signIn() throws SQLException
     {
     DBConnect connection = new DBConnect();
-    connection.signInSQL(EmailTextSignIn.getText(), PasswordTextSignIn.getText());
+    user=connection.signInSQL(EmailTextSignIn.getText(), PasswordTextSignIn.getText());
     
   
     
