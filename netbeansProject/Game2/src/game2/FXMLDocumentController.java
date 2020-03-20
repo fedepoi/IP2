@@ -34,7 +34,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.TilePane;
+import javax.swing.JCheckBox;
 
 
 /**
@@ -96,6 +98,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private JFXTextField PasswordTextSignIn;
+    @FXML
+    private HBox HBoxregister;
+
+    @FXML
+    private CheckBox checkBoxA;
+
+    @FXML
+    private Button RegisterButton;
+  
     
     private User user;
 
@@ -230,8 +241,20 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void register() throws SQLException
     {
+        int a;
+        if (checkBoxA.isSelected()==true)
+        {
+            a=1;
+        } else a=0;
+        
+        
+        
+        
+        
+        
+        
     DBConnect connection= new DBConnect();
-    connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText());
+    connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText(),a);
        
     }
     @FXML

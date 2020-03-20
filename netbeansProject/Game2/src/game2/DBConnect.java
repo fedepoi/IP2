@@ -33,9 +33,9 @@ public class DBConnect {
             
             }
     
-    public void registerSQL(String name , String sur,String mail,String pass) {
+    public void registerSQL(String name , String sur,String mail,String pass,int admin) {
     
-        String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`) values ('"+name+"',"+"'"+sur+"',"+"'"+mail+"',"+"'"+pass+"')";
+        String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`,`admin` ) values ('"+name+"',"+"'"+sur+"',"+"'"+mail+"',"+"'"+pass+"',"+"'"+admin+"')";
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {
@@ -60,28 +60,6 @@ public class DBConnect {
             this.user = new User(id, name, surname, resultMail, resultPassword, admin);
             System.out.println(resultMail+resultPassword+"..............."+user.toString());
      }
-       
-    
-    /*
-        try {
-            rs=st.executeQuery(query);
-            System.out.println("retrievin category data from database...");
-            while (rs.next()) {
-            int id = rs.getInt("userId");
-            String name=rs.getString("firstName");
-            String surname=rs.getString("lastName");
-            String resultMail= rs.getString("email");
-            String resultPassword = rs.getString("password");
-            boolean admin=rs.getBoolean("admin");
-            User user = new User(id, name, surname, resultMail, resultPassword, admin);
-            System.out.println(resultMail+resultPassword+"..............."+user.toString());
-            }            
-        } 
-        catch (SQLException ex) {
-           System.out.println("error :"+ex);
-        }
-        return null;
-*/
     return this.user;
         }
     
