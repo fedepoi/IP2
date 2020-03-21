@@ -88,6 +88,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Button answerMths4;
+    @FXML
+    private Button MathsImage;
+
+    @FXML
+    private Button GeographyImage;
+
+    @FXML
+    private Button ComputerImage;
 
 
 
@@ -95,6 +103,7 @@ public class FXMLDocumentController implements Initializable {
     
 
     private User user;
+    private int i=0;
 
     
     
@@ -187,15 +196,12 @@ public class FXMLDocumentController implements Initializable {
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+          
            
        } catch (IOException ex) {
            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-       }    
-         
-          
+       } 
       
-         
-         
     }
     @FXML
     private void openAlert(ActionEvent event){
@@ -253,7 +259,7 @@ public class FXMLDocumentController implements Initializable {
     {
         DBConnect connection=new DBConnect();
            //System.out.println( connection.getRandomQuestion(1));
-           Question s=connection.getRandomQuestion(2);
+           Question s=connection.getRandomQuestion(3);
            textAreaQ.setText(s.getDesc());
            
            connection.getRelatedAnswer(s.getId());
@@ -265,5 +271,7 @@ public class FXMLDocumentController implements Initializable {
            answerMths4.setText(connection.getRelatedAnswer(s.getId()).get(3).getDesc());
     
     }
+    
+    
     
 }
