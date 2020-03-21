@@ -83,14 +83,17 @@ public class DBConnect {
 "where categoryId="+cat+"\n" +
 "ORDER BY RAND()\n" +
 "LIMIT 1";
-        
+
+        String q2="SELECT questions.questionDesc,"
+                + " answers.answerdesc,answers.answerId"
+                + " from questions "
+                + "inner JOIN answers on questions.questionId=answers.questionId "
+                + "where questions.questionId=1 "
+                + "order by rand() ";
         rs=st.executeQuery(query);
         
         while(rs.next()){
             this.randQuest=rs.getString("questionDesc");
-        
-        
-        
         }
     return randQuest;
     
