@@ -5,6 +5,8 @@
  */
 package game2;
 
+import Model.Answer;
+import Model.Question;
 import Model.User;
 import java.sql.*;
 import java.util.ArrayList;
@@ -20,8 +22,11 @@ public class DBConnect {
     private Statement st;
     private ResultSet rs;
     User user;
-    ArrayList category;
-    String randQuest;
+    
+    Question randQuest;
+    ArrayList<Answer> answers;
+            
+            
     
     public DBConnect () throws SQLException {
         try {
@@ -35,6 +40,38 @@ public class DBConnect {
         }
             
             }
+    
+    public Connection getCon() {
+    return this.conn;    
+    }
+    
+    public Statement getSt() {
+    return this.st;    
+    }
+    
+    public ResultSet getrs() {
+    return this.rs;    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public void registerSQL(String name , String sur,String mail,String pass,int admin) {
     
@@ -66,37 +103,72 @@ public class DBConnect {
     return this.user;
         }
     
-    public ArrayList getCategorySQL() throws SQLException{
-        String query ="select categoryName from category";
-        rs=st.executeQuery(query);
-        while (rs.next())
-        {
-            String catName= rs.getString("categoryName");
-            category.add(catName);
-        }
-        return category;
-    }
     
-    public String getRandomQuestion(int cat) throws SQLException
+    public Question getRandomQuestion(int cat) throws SQLException
     {
-        String query ="SELECT questions.questionDesc FROM questions\n" +
+        String query ="SELECT * FROM questions\n" +
 "where categoryId="+cat+"\n" +
 "ORDER BY RAND()\n" +
 "LIMIT 1";
 
         String q2="SELECT questions.questionDesc,"
-                + " answers.answerdesc,answers.answerId"
+                + " answers.answerdesc,answers.answerId,answers.correct"
                 + " from questions "
                 + "inner JOIN answers on questions.questionId=answers.questionId "
                 + "where questions.questionId=1 "
                 + "order by rand() ";
+        
+        
         rs=st.executeQuery(query);
         
         while(rs.next()){
-            this.randQuest=rs.getString("questionDesc");
+            int id=rs.getInt("questionId");
+            String desc= rs.getString("questionDesc");
+           this.randQuest=new Question(id, desc);
+         
         }
     return randQuest;
     
+    }
+    
+    
+    public ArrayList<Answer> getRelatedAnswer(int questId) throws SQLException
+    {
+        answers=new ArrayList<>();
+    String query="SELECT answers.answerdesc,answers.answerId,answers.correct\n" +
+"                from questions \n" +
+"                inner JOIN answers on questions.questionId=answers.questionId\n" +
+"                where questions.questionId="+questId+" order by rand()";
+  
+    rs=st.executeQuery(query);
+    while (rs.next()){
+         
+         String answerD=rs.getString("answerdesc");
+         int answerId=rs.getInt("answerId");
+         boolean correct = rs.getBoolean("correct");
+         Answer a = new Answer(answerId, answerD, correct);
+         answers.add(a);
+         
+    }
+    
+    return answers;
+    }
+    
+    
+    
+    
+    
+    
+    
+     public void getCategorySQL() throws SQLException{
+        String query ="select categoryName from category";
+        rs=st.executeQuery(query);
+        while (rs.next())
+        {
+            String catName= rs.getString("categoryName");
+            
+        }
+        
     }
     
     

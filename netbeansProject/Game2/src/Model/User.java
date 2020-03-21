@@ -5,6 +5,9 @@
  */
 package Model;
 
+import game2.DBConnect;
+import java.sql.SQLException;
+
 /**
  *
  * @author feder
@@ -16,6 +19,7 @@ public class User {
     private String email;
     private String password;
     private boolean admin;
+    private DBConnect connection;
     
     //prova
     public User(){}
@@ -28,6 +32,11 @@ public class User {
     this.email=email;
     this.password=password;
     this.admin=admin;   
+    }
+    
+    public void startQuiz(String cat) throws SQLException{
+    connection=new DBConnect();
+    
     }
     
     

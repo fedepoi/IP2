@@ -5,12 +5,15 @@
  */
 package game2;
 
+import Model.Answer;
+import Model.Question;
 import Model.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.util.Duration;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
@@ -73,6 +76,18 @@ public class FXMLDocumentController implements Initializable {
     private TextArea textAreaQ;
     @FXML
     private Button PlayB;
+    
+    @FXML
+    private Button answerMaths1;
+
+    @FXML
+    private Button answerMaths2;
+
+    @FXML
+    private Button answerMths3;
+
+    @FXML
+    private Button answerMths4;
 
 
 
@@ -237,9 +252,17 @@ public class FXMLDocumentController implements Initializable {
     public void setQuestionInBox() throws SQLException
     {
         DBConnect connection=new DBConnect();
-           System.out.println( connection.getRandomQuestion(1));
-           String s=connection.getRandomQuestion(1);
-           textAreaQ.setText(s);
+           //System.out.println( connection.getRandomQuestion(1));
+           Question s=connection.getRandomQuestion(2);
+           textAreaQ.setText(s.getDesc());
+           
+           connection.getRelatedAnswer(s.getId());
+           
+           //System.out.println( connection.getRelatedAnswer(s.getId()).get(0).getDesc()+"..................");
+           answerMaths1.setText(connection.getRelatedAnswer(s.getId()).get(0).getDesc());
+           answerMaths2.setText(connection.getRelatedAnswer(s.getId()).get(1).getDesc());
+           answerMths3.setText(connection.getRelatedAnswer(s.getId()).get(2).getDesc());
+           answerMths4.setText(connection.getRelatedAnswer(s.getId()).get(3).getDesc());
     
     }
     
