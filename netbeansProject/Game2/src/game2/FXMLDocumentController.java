@@ -96,17 +96,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Button ComputerImage;
-
-
-
-
     
-
     private User user;
     private int i=1;
-
-    
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -257,8 +249,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public void setQuestionInBox() throws SQLException
     {
+        
         DBConnect connection=new DBConnect();
-           Question s=connection.getRandomQuestion(i);
+           Question s=connection.getRandomQuestion(Integer.parseInt(MathsImage.getText()));
            System.out.println(s.toString());
            textAreaQ.setText(s.getDesc());
            connection.getRelatedAnswer(s.getId());
@@ -267,17 +260,5 @@ public class FXMLDocumentController implements Initializable {
            answerMths3.setText(connection.getRelatedAnswer(s.getId()).get(2).getDesc());
            answerMths4.setText(connection.getRelatedAnswer(s.getId()).get(3).getDesc());
     
-    }
-    
-    @FXML
-    public void catMaths(ActionEvent event) throws SQLException
-    {
-        this.i=2;
-        openMaths(event);
-        System.out.println(i);
-    
-    }
-    
-    
-    
+    } 
 }
