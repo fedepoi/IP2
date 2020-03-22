@@ -13,5 +13,17 @@ public class Category {
 private int catId;
 private String catName;
  private Question ques;  
+ 
+ public Category(int id,String name){
+ this.catId=id;
+ this.catName=name;
+ 
+ }
     
+ public int getId(){return this.catId;}
+ public String getName(){return this.catName;}
+ 
+ 
+ 
+ 
 }

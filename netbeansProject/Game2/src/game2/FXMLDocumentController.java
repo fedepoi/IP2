@@ -103,7 +103,7 @@ public class FXMLDocumentController implements Initializable {
     
 
     private User user;
-    private int i=0;
+    private int i=1;
 
     
     
@@ -258,7 +258,8 @@ public class FXMLDocumentController implements Initializable {
     public void setQuestionInBox() throws SQLException
     {
         DBConnect connection=new DBConnect();
-           Question s=connection.getRandomQuestion(3);
+           Question s=connection.getRandomQuestion(i);
+           System.out.println(s.toString());
            textAreaQ.setText(s.getDesc());
            connection.getRelatedAnswer(s.getId());
            answerMaths1.setText(connection.getRelatedAnswer(s.getId()).get(0).getDesc());
@@ -268,15 +269,15 @@ public class FXMLDocumentController implements Initializable {
     
     }
     
+    @FXML
+    public void catMaths(ActionEvent event) throws SQLException
+    {
+        this.i=2;
+        openMaths(event);
+        System.out.println(i);
+    
+    }
+    
     
     
 }
-//HGJGHJGLHJGHJGJHB
-
-
-
-
-
-
-
-/// 2nd try

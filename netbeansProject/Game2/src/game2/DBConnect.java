@@ -6,6 +6,7 @@
 package game2;
 
 import Model.Answer;
+import Model.Category;
 import Model.Question;
 import Model.User;
 import java.sql.*;
@@ -23,8 +24,9 @@ public class DBConnect {
     private ResultSet rs;
     User user;
     
-    Question randQuest;
-    ArrayList<Answer> answers;
+    private Question randQuest;
+    private ArrayList<Answer> answers;
+    private Category cat;
             
             
     
@@ -52,24 +54,6 @@ public class DBConnect {
     public ResultSet getrs() {
     return this.rs;    
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -160,15 +144,18 @@ public class DBConnect {
     
     
     
-     public void getCategorySQL() throws SQLException{
-        String query ="select categoryName from category";
+     public Category getCategorySQL(int idc) throws SQLException{
+         
+        String query ="select * from category where id="+idc;
         rs=st.executeQuery(query);
         while (rs.next())
         {
+            int id =rs.getInt("categoryId");
             String catName= rs.getString("categoryName");
+            cat=new Category(id, catName);
             
         }
-        
+        return cat;
     }
     
     

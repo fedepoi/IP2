@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" stylesheets="@game2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game2.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" stylesheets="@game2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game2.FXMLDocumentController">
    <children>
       <Button fx:id="MathsImage111" layoutX="587.0" layoutY="99.0" mnemonicParsing="false" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@../../game2.css">
          <effect>
@@ -49,7 +49,7 @@
       </HBox>
       <Line endX="57.0" layoutX="634.0" layoutY="171.0" startX="-2.0" />
       <Line endX="-2.0" endY="-56.0" layoutX="663.0" layoutY="199.0" startX="-2.0" />
-      <Button fx:id="MathsImage" layoutX="49.0" layoutY="100.0" mnemonicParsing="false" onAction="#openMaths" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@../../game2.css">
+      <Button fx:id="MathsImage" layoutX="49.0" layoutY="100.0" mnemonicParsing="false" onAction="#catMaths" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@../../game2.css">
          <effect>
             <DropShadow height="16.0" radius="7.5" width="16.0" />
          </effect></Button>
