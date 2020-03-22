@@ -258,13 +258,9 @@ public class FXMLDocumentController implements Initializable {
     public void setQuestionInBox() throws SQLException
     {
         DBConnect connection=new DBConnect();
-           //System.out.println( connection.getRandomQuestion(1));
            Question s=connection.getRandomQuestion(3);
            textAreaQ.setText(s.getDesc());
-           
            connection.getRelatedAnswer(s.getId());
-           
-           //System.out.println( connection.getRelatedAnswer(s.getId()).get(0).getDesc()+"..................");
            answerMaths1.setText(connection.getRelatedAnswer(s.getId()).get(0).getDesc());
            answerMaths2.setText(connection.getRelatedAnswer(s.getId()).get(1).getDesc());
            answerMths3.setText(connection.getRelatedAnswer(s.getId()).get(2).getDesc());

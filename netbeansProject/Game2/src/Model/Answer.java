@@ -27,14 +27,8 @@ public class Answer {
     
     
     @Override
-    public String toString(){
-        
+    public String toString(){     
     return Integer.toString(answerId)+desc+correct;
-    
-    
-    
-    
-    
     }
     
     

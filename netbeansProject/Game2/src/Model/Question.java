@@ -26,13 +26,15 @@ public class Question {
     
     
     
-    public String getDesc()
-    {
-    return questionDesc;
+    public String getDesc(){
+        return questionDesc;}
     
-    }
+    public int getId(){
+        return this.questionId;}
     
-    public int getId(){return this.questionId;}
+    public void setId(int id){
+        this.questionId=id;}
+    public void setDesc(String desc){this.questionDesc=desc;}
     
     
 }
