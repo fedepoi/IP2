@@ -9,6 +9,8 @@ import Model.Answer;
 import Model.Question;
 import Model.User;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
@@ -97,8 +99,45 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button ComputerImage;
     
+    @FXML
+    private JFXTextField FirstNameTextSetAdmin;
+
+    @FXML
+    private JFXTextField LastNameTextSetAdmin;
+
+    @FXML
+    private JFXTextField EmailTextSetAdmin;
+
+    @FXML
+    private JFXTextField PasswordTextSetAdmin;
+    
+    @FXML
+    private CheckBox becomeUserCheckBox;
+
+    @FXML
+    private Button SaveProfileButtonAdmin;
+    
+    @FXML
+    private JFXComboBox<String> categoryComboBox;
+
+    @FXML
+    private JFXComboBox<String> questionComboBox;
+
+    @FXML
+    private JFXComboBox<String> answerComboBox;
+
+    @FXML
+    private JFXTextArea editTextField;
+    
+    @FXML
+    private Button deleteEditAdmin;
+
+    @FXML
+    private Button saveEditAdmin;
+    
     private User user;
     private int i=1;
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -226,6 +265,48 @@ public class FXMLDocumentController implements Initializable {
             
             r.getChildren().add(cancelQuestion);      
     }
+    
+    @FXML
+    private void openSettingsAdmin(ActionEvent event) throws SQLException{
+         categoryComboBox = new JFXComboBox<>();//doesnt work!
+         categoryComboBox.getItems().addAll("Maths","Geography","Computer Science");//doesnt work
+        
+         try {
+           Parent windowHome = FXMLLoader.load(getClass().getResource("SettingsAdmin.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+          
+           
+       } catch (IOException ex) {
+           Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+      
+    }
+    
+    @FXML
+    private void openSettingsUser(ActionEvent event) throws SQLException{
+         
+    
+         try {
+           Parent windowHome = FXMLLoader.load(getClass().getResource("SettingsUser.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           
+           window.setScene(windowHomeScene);
+           window.show();
+          
+           
+       } catch (IOException ex) {
+           Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+      
+    }
+    
+   
+      
+    
     
     @FXML
     public void register() throws SQLException
