@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -80,7 +79,7 @@
                <children>
                   <CheckBox fx:id="becomeUserCheckBox" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="17.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="User" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="110.0" right="-190.0" top="63.0" />
+                        <Insets left="110.0" right="-190.0" top="73.0" />
                      </HBox.margin>
                      <opaqueInsets>
                         <Insets />
@@ -88,7 +87,7 @@
                   </CheckBox>
                   <Button fx:id="SaveProfileButtonAdmin" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@../../game2.css" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="180.0" right="15.0" top="55.0" />
+                        <Insets left="180.0" right="15.0" top="65.0" />
                      </HBox.margin>
                   </Button>
                </children>
@@ -126,21 +125,26 @@
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </JFXComboBox>
-            <JFXTextArea fx:id="editTextField" prefHeight="60.0" prefWidth="341.0" unFocusColor="#d0caca">
+            <JFXTextField fx:id="editQuestionField" focusColor="#f78c7b" labelFloat="true" promptText="Edit Question" unFocusColor="#d0caca">
                <VBox.margin>
-                  <Insets bottom="30.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
-            </JFXTextArea>
+            </JFXTextField>
+            <JFXTextField fx:id="editAnwerField" focusColor="#f78c7b" labelFloat="true" promptText="Edit Answer" unFocusColor="#d0caca">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
             <HBox fx:id="HBoxregister1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="deleteEditAdmin" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@../../game2.css" text="Delete">
                      <HBox.margin>
-                        <Insets left="120.0" right="-160.0" top="10.0" />
+                        <Insets left="120.0" right="-160.0" top="20.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="saveEditAdmin" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@../../game2.css" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="180.0" right="15.0" top="10.0" />
+                        <Insets left="180.0" right="15.0" top="20.0" />
                      </HBox.margin>
                   </Button>
                </children>
