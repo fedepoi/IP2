@@ -234,6 +234,8 @@ public class FXMLDocumentController implements Initializable {
        } 
       
     }
+    
+    
     @FXML
     private void openAlert(ActionEvent event){
         
@@ -332,7 +334,7 @@ public class FXMLDocumentController implements Initializable {
     {
         
         DBConnect connection=new DBConnect();
-           Question s=connection.getRandomQuestion(1);
+           Question s=connection.getRandomQuestion(3);
            System.out.println(s.toString());
            textAreaQ.setText(s.getDesc());
            connection.getRelatedAnswer(s.getId());
@@ -342,4 +344,5 @@ public class FXMLDocumentController implements Initializable {
            answerMths4.setText(connection.getRelatedAnswer(s.getId()).get(3).getDesc());
     
     } 
+   
 }
