@@ -1,0 +1,178 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27 Μαρ 2020, 3:19:48 μμ
+    Author     : Vicky Tsirogianni
+*/
+
+.parent{
+    -fx-background-color: trasparent;
+}
+
+.panel{
+    -fx-background-color:#333333;  
+}
+
+.panelHome{
+    -fx-background-color:#404040;  
+}
+
+.trans-btn-white-border{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+
+.trans-btn-white-border:hover{
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #333333;
+}
+
+.white-panel{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+}
+.details_box{
+    -fx-background-color: transparent;
+    -fx-border-color: #DEDEE4;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+.details{
+    -fx-background-color: transparent;
+}
+
+
+.register_btn{
+    -fx-border-color: #F78C7B;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #333333;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1.5px;
+}
+
+.register_btn:hover{
+    -fx-border-color: #F78C7B;
+    -fx-background-color: #F78C7B;
+    -fx-text-fill: #ffffff;
+}
+
+
+.ReportsMenu{
+    -fx-border-color: #333333;
+    -fx-border-width: 0px,0px,1px,0px;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #333333;
+}
+.ReportsMenu:hover{
+    -fx-border-color: #F78C7B;
+    -fx-text-fill: #F78C7B;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+.categoryButtons{
+    -fx-text-fill: #333333;
+    -fx-background-color:none;
+    
+}
+.categoryButtons:hover{
+    -fx-text-fill: #F78C7B;
+    
+}
+.mathsImage{
+    -fx-background-image: url("/Game/maths.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.mathsImage:hover{
+     -fx-border-color: #F78C7B;
+}
+
+
+.geoImage{
+    -fx-background-image: url("/Game/geography.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.geoImage:hover{
+     -fx-border-color: #F78C7B;
+}
+
+.computerImage{
+    -fx-background-image: url("/Game/computerScience.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.computerImage:hover{
+     -fx-border-color: #F78C7B;
+}
+
+.labelMaths:hover{
+    -fx-text-fill: #F78C7B;
+}
+
+.labelGeography:hover{
+    -fx-text-fill: #F78C7B;
+}
+.labelComputer:hover{
+    -fx-text-fill: #F78C7B;
+}
+.labelAdd:hover{
+    -fx-text-fill: #F78C7B;
+}
+.nextQuestion{
+     -fx-text-fill:#333333;
+     -fx-background-color: transparent;
+     -fx-border-width: 0px 0px 0px 0px; 
+}
+
+
+.nextQuestion:hover{
+     -fx-text-fill:#F78C7B;
+     -fx-background-color: transparent;
+     -fx-border-color:#F78C7B;
+     -fx-border-width: 0px 0px 1px 0px; 
+}
+
+.playQuiz{
+     -fx-text-fill:#333333;
+     -fx-background-color: transparent; 
+     -fx-border-color:#F78C7B;
+     -fx-border-radius: 5px; 
+}
+
+
+.playQuiz:hover{
+     -fx-text-fill:#ffffff;
+     -fx-background-color:#F78C7B;
+     -fx-background-radius: 5px; 
+      
+}
+.cancelQuestion{
+     -fx-text-fill:#333333;
+     -fx-background-color: transparent;
+     -fx-border-width: 0px 0px 0px 0px;
+}
+
+
+.cancelQuestion:hover{
+    -fx-text-fill:#F78C7B;
+    -fx-background-color: transparent;
+     -fx-border-color:#F78C7B;
+     -fx-border-width: 0px 0px 1px 0px;
+}
+
+.answer:hover{
+    -fx-border-color:#F78C7B;
+    -fx-background-color: #F78C7B;
+}
