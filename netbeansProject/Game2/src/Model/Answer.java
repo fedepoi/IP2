@@ -14,6 +14,9 @@ public class Answer {
     private String desc;
     private boolean correct;
     
+    
+    public Answer (){}
+    
     public Answer (int id,String desc,boolean correct){
     this.answerId=id;
     this.desc=desc;
@@ -21,6 +24,8 @@ public class Answer {
     }
     
     public String getDesc(){return this.desc;}
+    public int getId(){return this.answerId;}
+    public boolean getCorrect(){return this.correct;}
     
     
     
