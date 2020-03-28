@@ -8,6 +8,7 @@ package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.Answer;
 import model.Question;
 
 /**
@@ -75,7 +77,16 @@ public class QuizController implements Initializable {
     @FXML
     private Button PlayB;
     
-    int category;
+    @FXML
+    private Label numberQLab;
+    
+    private int category;
+    private int i=1;
+    
+    
+    private Question ques;
+    private Answer answ;
+    private int result=0;
     
     public int getCat(){return this.category;}
     public void setCat(int c){this.category=c;}
@@ -109,21 +120,78 @@ public class QuizController implements Initializable {
     public void setQuestionInBox() throws SQLException
     {
        
-        DBConnect connection=new DBConnect();
+           DBConnect connection=new DBConnect();
            Question s=connection.getRandomQuestion(getCat());
            System.out.println(getCat());
            System.out.println(s.toString());
            textAreaQ.setText(s.getDesc());
            connection.getRelatedAnswer(s.getId());
+           //ques = new Question(getCat(), s.getDesc(),connection.getRelatedAnswer(s.getId()));
+          
            answer1.setText(connection.getRelatedAnswer(s.getId()).get(0).getDesc());
+           answer1.setUserData(ques.getAnswers().get(0));
            answer2.setText(connection.getRelatedAnswer(s.getId()).get(1).getDesc());
+           answer2.setUserData(ques.getAnswers().get(1));
            answer3.setText(connection.getRelatedAnswer(s.getId()).get(2).getDesc());
+           answer3.setUserData(ques.getAnswers().get(2));
            answer4.setText(connection.getRelatedAnswer(s.getId()).get(3).getDesc());
+           answer4.setUserData(ques.getAnswers().get(3));
+           
+           
     
     } 
     
     
+    @FXML
+    public void nextQuestion() throws SQLException{
+        i++;
+        numberQLab.setText(Integer.toString(i));
+        setQuestionInBox();        
+        if (i==5){nextQuestion.setDisable(true);}     
+        
+    }
+    
+    
+    @FXML
+    public void play() throws SQLException{
+        setQuestionInBox();
+    
+     for (Answer a : ques.getAnswers()) { 		      
+          // System.out.println(a); 
+           if (a.getCorrect()==true){System.out.println(a);}
+      }
+     
+    this.PlayB.setDisable(true);
+         
+    }
+    
+    @FXML
+    public void getCorrect(ActionEvent event){
+      
+        if(event.getSource()==answer1){
+        Answer a = (Answer) answer1.getUserData();
+        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+        }        
+        else  if(event.getSource()==answer2){
+        Answer a = (Answer) answer2.getUserData();
+        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+        }
+         else  if(event.getSource()==answer3){
+        Answer a = (Answer) answer3.getUserData();
+        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+        }
+         else  if(event.getSource()==answer4){
+        Answer a = (Answer) answer4.getUserData();
+        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+        }
+        
+        System.out.println(result);
+        
+    }
+    
+   
     
     
     
 }
+

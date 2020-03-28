@@ -55,17 +55,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button AddCategory;
-
-    @FXML
-    private Button mathsButton;
-
-    @FXML
-    private Button geographyButton;
-
-    @FXML
-    private Button computerScienceButton;
-    
-    
+   
    
     
     @Override

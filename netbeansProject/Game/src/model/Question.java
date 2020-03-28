@@ -14,14 +14,31 @@ import java.util.ArrayList;
 public class Question {
    private int questionId;
     private String questionDesc;
-    private ArrayList answer;
+    private ArrayList answers;
     
     
     public Question(int questionId,String desc){
     this.questionId=questionId;
     this.questionDesc=desc;
     
+    
     }
+    
+    public Question(int questionId,String desc, ArrayList answers){
+    this.questionId=questionId;
+    this.questionDesc=desc;
+    this.answers=answers;
+    
+    
+    }
+    
+    public ArrayList<Answer> getAnswers(){
+    
+    return this.answers;
+    }
+    
+    
+    
     
     
     
