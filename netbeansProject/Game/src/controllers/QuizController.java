@@ -155,7 +155,12 @@ public class QuizController implements Initializable {
         i++;
         numberQLab.setText(Integer.toString(i));
         setQuestionInBox();        
-        if (i==5){nextQuestion.setDisable(true);}     
+        if (i==5){nextQuestion.setDisable(true);
+        answer1.setDisable(true);
+        answer2.setDisable(true);
+        answer3.setDisable(true);
+        answer4.setDisable(true);
+        }     
         
     }
     
@@ -179,19 +184,23 @@ public class QuizController implements Initializable {
         if(event.getSource()==answer1){
         Answer a = (Answer) answer1.getUserData();
         if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+            nextQuestion();
         }        
         else  if(event.getSource()==answer2){
         Answer a = (Answer) answer2.getUserData();
         if (a.getCorrect()){System.out.println("correct");} else System.out.println("false");
+           nextQuestion();       
         }
          else  if(event.getSource()==answer3){
         Answer a = (Answer) answer3.getUserData();
         if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
-        }
+        nextQuestion();
+         }
          else  if(event.getSource()==answer4){
         Answer a = (Answer) answer4.getUserData();
         if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
-        }
+        nextQuestion();
+         }
         
         System.out.println(result);
         
