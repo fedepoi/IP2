@@ -89,32 +89,40 @@ and open the template in the editor.
     -fx-text-fill: #F78C7B;
     
 }
+
+.addImage:hover{
+     -fx-border-color: #F78C7B;
+     -fx-border-width: 2px;
+}
 .mathsImage{
-    -fx-background-image: url("/Game/maths.jpg");
+    -fx-background-image: url("maths.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
 }
 .mathsImage:hover{
      -fx-border-color: #F78C7B;
+     -fx-border-width: 2px;
 }
 
 
 .geoImage{
-    -fx-background-image: url("/Game/geography.jpg");
+    -fx-background-image: url("geography.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
 }
 .geoImage:hover{
      -fx-border-color: #F78C7B;
+     -fx-border-width: 2px;
 }
 
 .computerImage{
-    -fx-background-image: url("/Game/computerScience.jpg");
+    -fx-background-image: url("computerScience.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
 }
 .computerImage:hover{
      -fx-border-color: #F78C7B;
+     -fx-border-width: 2px;
 }
 
 .labelMaths:hover{
@@ -175,4 +183,35 @@ and open the template in the editor.
 .answer:hover{
     -fx-border-color:#F78C7B;
     -fx-background-color: #F78C7B;
+}
+
+.scoreBox{
+    -fx-text-fill: #333333;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 30px;
+}
+
+.score{
+    -fx-text-fill: #333333;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 30px;
+}
+
+.exitScoreButton{
+     -fx-text-fill:#333333;
+     -fx-background-color:#FDF5E6; 
+     -fx-border-color:#333333;
+     -fx-border-radius: 5px;
+     -fx-background-radius:5px;
+     -fx-border-width: 1.5px;
+    
+}
+.exitScoreButton:hover{
+     -fx-text-fill:#ffffff;
+     -fx-background-color:#333333; 
+     -fx-border-color:#F78C7B;
+     -fx-border-radius: 5px;
+     -fx-border-width: 2px;
+     -fx-border-color:#333333;
+    
 }

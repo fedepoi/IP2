@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,9 +25,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Answer;
 import model.Question;
+
 
 /**
  * FXML Controller class
@@ -80,6 +85,27 @@ public class QuizController implements Initializable {
     @FXML
     private Label numberQLab;
     
+    @FXML
+    private Button submitButton;
+
+    @FXML
+    private AnchorPane scorePane;
+
+    @FXML
+    private VBox scoreBox;
+
+    @FXML
+    private JFXTextField timeField;
+
+    @FXML
+    private VBox scoreSmallBox;
+
+    @FXML
+    private JFXTextField scoreField;
+
+    @FXML
+    private Button exitScoreButton;
+    
     private int category;
     private int i=1;
     
@@ -90,7 +116,7 @@ public class QuizController implements Initializable {
     
     public int getCat(){return this.category;}
     public void setCat(int c){this.category=c;}
-    
+   
     
     
     
@@ -189,9 +215,27 @@ public class QuizController implements Initializable {
         
     }
     
-   
+     @FXML
+    private void openScore(ActionEvent event) throws IOException{
+         try {
+             FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(getClass().getResource("/game/score.fxml"));
+             Parent windowHome = loader.load();
+             
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/quiz.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           //windowHomeScene.setFill(Color.TRANSPARENT);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+          
+           window.setScene(windowHomeScene);
+           window.show();
+          
+         } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+               
     
-    
+}
     
 }
 

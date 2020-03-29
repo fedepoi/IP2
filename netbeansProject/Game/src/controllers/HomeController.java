@@ -143,7 +143,28 @@ public class HomeController implements Initializable {
       
     }
     
- 
+ @FXML
+    private void openReports(ActionEvent event) throws IOException{
+         try {
+             FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(getClass().getResource("/game/reports.fxml"));
+             Parent windowHome = loader.load();
+             
+             
+             
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/quiz.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+           
+       
+         } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+               
+    
+}
     
     
    

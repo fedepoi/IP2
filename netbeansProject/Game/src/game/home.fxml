@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -23,7 +23,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="ReportsMenu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Reports">
+            <Button fx:id="ReportsMenu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openReports" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Reports">
                <font>
                   <Font size="14.0" />
                </font>
@@ -46,22 +46,22 @@
       </HBox>
       <Button fx:id="MathsImage" layoutX="59.0" layoutY="110.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@game.css">
          <effect>
-            <DropShadow height="16.0" radius="7.5" width="16.0" />
+            <DropShadow height="22.0" radius="10.5" width="22.0" />
          </effect>
       </Button>
       <Button fx:id="GeographyImage" layoutX="237.0" layoutY="110.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="geoImage" stylesheets="@game.css">
          <effect>
-            <DropShadow height="16.0" radius="7.5" width="16.0" />
+            <DropShadow height="22.0" radius="10.5" width="22.0" />
          </effect>
       </Button>
       <Button fx:id="ComputerImage" layoutX="420.0" layoutY="109.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="computerImage" stylesheets="@game.css">
          <effect>
-            <DropShadow height="16.0" radius="7.5" width="16.0" />
+            <DropShadow height="22.0" radius="10.5" width="22.0" />
          </effect>
       </Button>
-      <Button fx:id="AddCategory" layoutX="600.0" layoutY="110.0" mnemonicParsing="false" prefHeight="143.0" prefWidth="149.0" styleClass="computerImage" stylesheets="@game.css" text="Add Category" textFill="#333333">
+      <Button fx:id="AddCategory" layoutX="600.0" layoutY="110.0" mnemonicParsing="false" prefHeight="143.0" prefWidth="149.0" styleClass="addImage" stylesheets="@game.css" text="Add Category" textFill="#333333">
          <effect>
-            <DropShadow height="16.0" radius="7.5" width="16.0" />
+            <DropShadow height="22.0" radius="10.5" width="22.0" />
          </effect>
          <font>
             <Font size="14.0" />
