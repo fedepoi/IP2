@@ -122,19 +122,27 @@ public class QuizController implements Initializable {
        
            DBConnect connection=new DBConnect();
            Question s=connection.getRandomQuestion(getCat());
-           System.out.println(getCat());
+           //System.out.println(getCat());
            System.out.println(s.toString());
            textAreaQ.setText(s.getDesc());
            connection.getRelatedAnswer(s.getId());
            //ques = new Question(getCat(), s.getDesc(),connection.getRelatedAnswer(s.getId()));
-          
-           answer1.setText(connection.getRelatedAnswer(s.getId()).get(0).getDesc());
+           
+           s.setAnswers(connection.getRelatedAnswer(s.getId()));
+           this.ques=s;
+           System.out.println("----------"+s.getAnswers().toString());
+        
+           //answer1.setText(s.getAnswers().get(0).getDesc());
+           answer1.setText(s.getAnswers().get(0).getDesc());
            answer1.setUserData(ques.getAnswers().get(0));
-           answer2.setText(connection.getRelatedAnswer(s.getId()).get(1).getDesc());
+           
+           answer2.setText(s.getAnswers().get(1).getDesc());
            answer2.setUserData(ques.getAnswers().get(1));
-           answer3.setText(connection.getRelatedAnswer(s.getId()).get(2).getDesc());
+           
+           answer3.setText(s.getAnswers().get(2).getDesc());
            answer3.setUserData(ques.getAnswers().get(2));
-           answer4.setText(connection.getRelatedAnswer(s.getId()).get(3).getDesc());
+           
+           answer4.setText(s.getAnswers().get(3).getDesc());
            answer4.setUserData(ques.getAnswers().get(3));
            
            
@@ -166,7 +174,7 @@ public class QuizController implements Initializable {
     }
     
     @FXML
-    public void getCorrect(ActionEvent event){
+    public void getCorrect(ActionEvent event) throws SQLException{
       
         if(event.getSource()==answer1){
         Answer a = (Answer) answer1.getUserData();
@@ -174,7 +182,7 @@ public class QuizController implements Initializable {
         }        
         else  if(event.getSource()==answer2){
         Answer a = (Answer) answer2.getUserData();
-        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+        if (a.getCorrect()){System.out.println("correct");} else System.out.println("false");
         }
          else  if(event.getSource()==answer3){
         Answer a = (Answer) answer3.getUserData();

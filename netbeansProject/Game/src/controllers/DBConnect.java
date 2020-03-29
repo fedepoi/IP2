@@ -132,8 +132,11 @@ public class DBConnect {
          boolean correct = rs.getBoolean("correct");
          Answer a = new Answer(answerId, answerD, correct);
          answers.add(a);
+         //System.out.println(a.toString()+":prova:");
          
     }
+    
+    //System.out.println("++++++++++++"+answers.toString());
     
     return answers;
     }
