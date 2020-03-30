@@ -31,6 +31,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Answer;
 import model.Question;
+import model.Score;
+import model.User;
 
 
 /**
@@ -108,14 +110,15 @@ public class QuizController implements Initializable {
     
     private int category;
     private int i=1;
-    
-    
+    private Score score;
+    private User user;
     private Question ques;
     private Answer answ;
     private int result=0;
     
     public int getCat(){return this.category;}
     public void setCat(int c){this.category=c;}
+    public void setUser(User u){user=u;}
    
     
     
@@ -193,6 +196,7 @@ public class QuizController implements Initializable {
     
     @FXML
     public void play() throws SQLException{
+        score=new Score();
         setQuestionInBox();
     
      for (Answer a : ques.getAnswers()) { 		      
@@ -233,7 +237,7 @@ public class QuizController implements Initializable {
     }
     
      @FXML
-    private void openScore(ActionEvent event) throws IOException{
+    private void openScore(ActionEvent event) throws IOException, SQLException{
          try {
              FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/score.fxml"));
@@ -245,8 +249,17 @@ public class QuizController implements Initializable {
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
           
           
+           ScoreController sCon= loader.getController();
+           sCon.setScore(result);
+           
+           
            window.setScene(windowHomeScene);
            window.show();
+           
+           DBConnect conn = new DBConnect();
+           conn.addScore(result);
+           conn.addQuiz(getCat(), user.getId(),score.getId());
+           
           
          } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);

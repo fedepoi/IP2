@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +26,8 @@ import javafx.stage.Stage;
  * @author HP
  */
 public class ScoreController implements Initializable {
+    @FXML
+    private JFXTextField scoreField;
 
     /**
      * Initializes the controller class.
@@ -60,6 +63,8 @@ public class ScoreController implements Initializable {
            Logger.getLogger(controllers.ScoreController.class.getName()).log(Level.SEVERE, null, ex);
        }     
     }
+    
+    public void setScore(int s){scoreField.setText(Integer.toString(s));}
     
         
 }

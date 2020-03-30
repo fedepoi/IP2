@@ -162,16 +162,28 @@ public class RegisterSignInController implements Initializable {
     private void openHome(ActionEvent event) throws IOException, SQLException{
       
           try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+               FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(getClass().getResource("/game/home.fxml"));
+             Parent windowHome = loader.load();
+              
+              
+              
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           
+          HomeController homeC = loader.getController();
+          signIn();
+          homeC.setUser(user);
+          System.out.println(user.toString());
+           
+           
        } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        }  
-          signIn();
-          System.out.println(user.toString());
+         
      }
     
     
