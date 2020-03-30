@@ -38,6 +38,9 @@ public class Question {
     }
     
     
+    public void setAnswers(ArrayList<Answer> answ){this.answers=answ;}
+    
+    
     
     
     
