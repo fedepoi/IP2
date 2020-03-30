@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Answer;
@@ -239,10 +240,13 @@ public class QuizController implements Initializable {
              loader.setLocation(getClass().getResource("/game/score.fxml"));
              Parent windowHome = loader.load();
              
-          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/quiz.fxml"));
+           
            Scene windowHomeScene = new Scene(windowHome);
            //windowHomeScene.setFill(Color.TRANSPARENT);
-           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           Stage window = new Stage();
+           window.initModality(Modality.APPLICATION_MODAL);
+           
           
            window.setScene(windowHomeScene);
            window.show();
