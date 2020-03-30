@@ -36,7 +36,7 @@ public class ScoreController implements Initializable {
      @FXML
     public void goHome(ActionEvent event) throws IOException{
     
-         try {
+        try {
            Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -44,6 +44,10 @@ public class ScoreController implements Initializable {
            window.show();
        } catch (IOException ex) {
            Logger.getLogger(controllers.ScoreController.class.getName()).log(Level.SEVERE, null, ex);
-       }   
-     }
+       }     
+    }
+    
+    
+    
+        
 }
