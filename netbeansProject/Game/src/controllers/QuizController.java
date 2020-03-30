@@ -244,6 +244,7 @@ public class QuizController implements Initializable {
            //windowHomeScene.setFill(Color.TRANSPARENT);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
           
+          
            window.setScene(windowHomeScene);
            window.show();
           

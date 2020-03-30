@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" fx:id="ratingPane" prefHeight="70.0" prefWidth="200.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.RatingController">
+    <stylesheets>
+        <URL value="@game.css" />
+    </stylesheets>
+   <children>
+      <Rating fx:id="ratingStars" layoutX="16.0" layoutY="9.0" />
+      <Label fx:id="labelRating" layoutX="83.0" layoutY="48.0" text="Rating" />
+   </children>
+</AnchorPane>

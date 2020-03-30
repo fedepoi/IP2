@@ -47,7 +47,19 @@ public class ScoreController implements Initializable {
        }     
     }
     
+     @FXML
+    public void openRating(ActionEvent event) throws IOException{
     
+        try {
+           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/rating.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+       } catch (IOException ex) {
+           Logger.getLogger(controllers.ScoreController.class.getName()).log(Level.SEVERE, null, ex);
+       }     
+    }
     
         
 }
