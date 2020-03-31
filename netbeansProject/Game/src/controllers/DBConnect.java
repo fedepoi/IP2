@@ -192,7 +192,7 @@ public class DBConnect {
      
      public void addQuiz(int catID,int userId,int scoreId){
          System.out.println("adding quiz");
-     String query = "insert into usequiz (categoryId , scoreId , userId) values ('"+catID+"','"+scoreId+"','"+userId+"');";
+     String query = "insert into userquiz (categoryId , scoreId , userId) values ('"+catID+"','"+scoreId+"','"+userId+"');";
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {

@@ -243,6 +243,9 @@ public class QuizController implements Initializable {
              loader.setLocation(getClass().getResource("/game/score.fxml"));
              Parent windowHome = loader.load();
              
+             ScoreController scoreCon = loader.getController();
+             scoreCon.setUser(user);
+             
           // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/quiz.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            //windowHomeScene.setFill(Color.TRANSPARENT);

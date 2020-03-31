@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  * FXML Controller class
@@ -28,6 +29,9 @@ import javafx.stage.Stage;
 public class ScoreController implements Initializable {
     @FXML
     private JFXTextField scoreField;
+    
+    private User user;
+    public void setUser(User u){user=u;}
 
     /**
      * Initializes the controller class.
@@ -40,7 +44,14 @@ public class ScoreController implements Initializable {
     public void goHome(ActionEvent event) throws IOException{
     
         try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(getClass().getResource("/game/home.fxml"));
+             Parent windowHome = loader.load();
+            
+            HomeController homeC = loader.getController();
+            homeC.setUser(user);
+            
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
