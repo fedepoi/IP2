@@ -93,6 +93,7 @@ public class HomeController implements Initializable {
                
     
 }
+ 
     
 @FXML
     private void Logout(ActionEvent event){
@@ -165,8 +166,6 @@ public class HomeController implements Initializable {
                
     
 }
-    
-    
-   
+  
     
 }
