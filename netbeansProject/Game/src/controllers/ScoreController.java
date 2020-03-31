@@ -29,6 +29,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.User;
 import org.controlsfx.control.Rating;
 
 /**
@@ -75,6 +76,13 @@ public class ScoreController implements Initializable {
 
     @FXML
     private Button goHome;
+    
+    private User user;
+    
+    
+    public void setUser(User u){user=u;}
+    public void setScore(int s){scoreField.setText(Integer.toString(s));}
+    
 
     /**
      * Initializes the controller class.

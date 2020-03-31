@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  * FXML Controller class
@@ -55,6 +56,8 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button AddCategory;
+    private User user;
+    public void setUser(User u){user=u;};
    
    
     
@@ -80,6 +83,7 @@ public class HomeController implements Initializable {
            window.show();
            
            QuizController c = loader.getController();
+           c.setUser(user);
            
            if (event.getSource()==MathsImage){
            c.setCat(1);}
