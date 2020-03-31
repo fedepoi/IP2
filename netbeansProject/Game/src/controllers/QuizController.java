@@ -258,6 +258,9 @@ public class QuizController implements Initializable {
            
            DBConnect conn = new DBConnect();
            conn.addScore(result);
+           System.out.println(getCat());
+           System.out.println(user.getId());
+           System.out.println(score.getId());
            conn.addQuiz(getCat(), user.getId(),score.getId());
            
           
