@@ -3,68 +3,117 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 
-<AnchorPane fx:id="scorePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="390.0" style="-fx-background-color: F78C7B;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ScoreController">
+<AnchorPane fx:id="scorePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ScoreController">
    <children>
-      <VBox fx:id="scoreBox" layoutX="69.0" layoutY="24.0" prefHeight="268.0" prefWidth="253.0" styleClass="scoreBox" stylesheets="@game.css">
+      <AnchorPane layoutX="139.0" layoutY="61.0" prefHeight="364.0" prefWidth="536.0" style="-fx-background-color: #F78C7B; -fx-background-radius: 30px; -fx-border-color: #333333; -fx-border-radius: 30px;">
          <children>
-            <Text fill="#0a0909" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score">
-               <VBox.margin>
-                  <Insets left="55.0" top="45.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Arial Black" size="24.0" />
-               </font>
-            </Text>
-            <Text fill="#c3293b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total time">
-               <font>
-                  <Font name="Arial Black" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="40.0" />
-               </VBox.margin>
-            </Text>
-            <JFXTextField fx:id="timeField" alignment="CENTER" focusColor="#f8f8f8" prefHeight="30.0" prefWidth="50.0" text="10" unFocusColor="#fcfafa">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="170.0" right="20.0" top="-48.0" />
-               </VBox.margin>
-            </JFXTextField>
-            <VBox fx:id="scoreSmallBox" prefHeight="74.0" prefWidth="213.0" styleClass="score" stylesheets="@game.css">
-               <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" right="20.0" top="30.0" />
-               </VBox.margin>
-               <effect>
-                  <DropShadow />
-               </effect>
+            <VBox fx:id="scoreBox" layoutX="142.0" layoutY="58.0" prefHeight="268.0" prefWidth="253.0" styleClass="scoreBox" stylesheets="@game.css">
                <children>
-                  <JFXTextField fx:id="scoreField" alignment="CENTER" editable="false" focusColor="#f8f8f8" prefHeight="30.0" prefWidth="50.0" unFocusColor="#fcfafa">
+                  <Text fill="#0a0909" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Score">
                      <VBox.margin>
-                        <Insets left="70.0" right="70.0" />
+                        <Insets left="55.0" top="45.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Arial Black" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#c3293b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total time">
+                     <font>
+                        <Font name="Arial Black" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="40.0" />
+                     </VBox.margin>
+                  </Text>
+                  <JFXTextField fx:id="timeField" alignment="CENTER" focusColor="#f8f8f8" prefHeight="30.0" prefWidth="50.0" text="10" unFocusColor="#fcfafa">
                      <font>
                         <Font name="System Bold" size="26.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="170.0" right="20.0" top="-48.0" />
+                     </VBox.margin>
                   </JFXTextField>
+                  <VBox fx:id="scoreSmallBox" prefHeight="74.0" prefWidth="213.0" styleClass="score" stylesheets="@game.css">
+                     <VBox.margin>
+                        <Insets bottom="50.0" left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <JFXTextField fx:id="scoreField" alignment="CENTER" focusColor="#f8f8f8" prefHeight="30.0" prefWidth="50.0" text="25" unFocusColor="#fcfafa">
+                           <VBox.margin>
+                              <Insets left="70.0" right="70.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
+            <Button fx:id="exitScoreButton" layoutX="201.0" layoutY="307.0" mnemonicParsing="false" onAction="#goHome" prefHeight="37.0" prefWidth="135.0" styleClass="exitScoreButton" stylesheets="@game.css" text="Exit">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Rating fx:id="ratingStars" layoutX="181.0" layoutY="40.0" prefHeight="34.0" prefWidth="176.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Rating>
          </children>
          <effect>
             <DropShadow />
          </effect>
-      </VBox>
-      <Button fx:id="exitScoreButton" layoutX="128.0" layoutY="274.0" mnemonicParsing="false" onAction="#goHome" prefHeight="37.0" prefWidth="135.0" styleClass="exitScoreButton" stylesheets="@game.css" text="Exit">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="Rating" layoutX="338.0" layoutY="311.0" mnemonicParsing="false" onAction="#openRating" text="Button" />
+      </AnchorPane>
+      <Label fx:id="labelRating" layoutX="348.0" layoutY="13.0" textFill="TRANSPARENT" />
+      <HBox fx:id="MenuBarQuiz" layoutX="-1.0" layoutY="-3.0" prefHeight="50.0" prefWidth="803.0" style="-fx-background-color: #333333; -fx-border-color: #333333;">
+         <children>
+            <Button fx:id="SettingsMenu" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Settings">
+               <HBox.margin>
+                  <Insets left="480.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="ReportsMenu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Reports">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="LogOut" layoutX="627.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Logout">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow radius="8.75" width="16.0" />
+         </effect>
+      </HBox>
    </children>
 </AnchorPane>

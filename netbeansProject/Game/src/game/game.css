@@ -199,19 +199,18 @@ and open the template in the editor.
 
 .exitScoreButton{
      -fx-text-fill:#333333;
-     -fx-background-color:#FDF5E6; 
-     -fx-border-color:#333333;
+     -fx-background-color:#FFFFCC; 
+     -fx-border-color:#FFFF66;
      -fx-border-radius: 5px;
      -fx-background-radius:5px;
      -fx-border-width: 1.5px;
     
 }
 .exitScoreButton:hover{
-     -fx-text-fill:#ffffff;
-     -fx-background-color:#333333; 
-     -fx-border-color:#F78C7B;
+     -fx-text-fill:#333333;
+     -fx-background-color:#FFFF66; 
+     -fx-border-color:#FFFF66;
      -fx-border-radius: 5px;
      -fx-border-width: 2px;
-     -fx-border-color:#333333;
-    
+     
 }
