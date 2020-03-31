@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  * FXML Controller class
@@ -42,67 +43,12 @@ public class ReportsController implements Initializable {
     private Label ProfileLabel;
 
     @FXML
-    private JFXTextField date1;
-
-    @FXML
-    private JFXTextField date2;
-
-    @FXML
-    private JFXTextField date3;
-
-    @FXML
-    private JFXTextField date4;
-
-    @FXML
-    private JFXTextField date5;
-
-    @FXML
-    private JFXTextField score1;
-
-    @FXML
-    private JFXTextField score2;
-
-    @FXML
-    private JFXTextField score3;
-
-    @FXML
-    private JFXTextField score4;
-
-    @FXML
-    private JFXTextField score5;
-
-    @FXML
     private Label ProfileLabel1;
+    
+    private User user;
+    public void setUser(User u){user=u;}
 
-    @FXML
-    private JFXTextField dateW1;
 
-    @FXML
-    private JFXTextField dateW2;
-
-    @FXML
-    private JFXTextField dateW3;
-
-    @FXML
-    private JFXTextField dateW4;
-
-    @FXML
-    private JFXTextField dateW5;
-
-    @FXML
-    private JFXTextField scoreW1;
-
-    @FXML
-    private JFXTextField scoreW2;
-
-    @FXML
-    private JFXTextField scoreW3;
-
-    @FXML
-    private JFXTextField scoreW4;
-
-    @FXML
-    private JFXTextField scoreW5;
   
      @FXML
     private Button goToHome;
@@ -126,4 +72,30 @@ public class ReportsController implements Initializable {
            Logger.getLogger(controllers.ReportsController.class.getName()).log(Level.SEVERE, null, ex);
        }   
      }
+    
+    public void setScoresInArea(User u){
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -155,6 +155,9 @@ public class HomeController implements Initializable {
              loader.setLocation(getClass().getResource("/game/reports.fxml"));
              Parent windowHome = loader.load();
              
+             ReportsController rController = loader.getController();
+             rController.setUser(user);
+             
              
              
           // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/quiz.fxml"));

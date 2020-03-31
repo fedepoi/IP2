@@ -201,6 +201,29 @@ public class DBConnect {
      
      
      }
+     
+     
+     public void getScore() throws SQLException{
+    
+      String query ="SELECT scores.score,scores.seconds, userquiz.userId FROM scores\n" +
+      "inner JOIN userquiz on userquiz.scoreId=scores.scoreId";
+      
+        rs=st.executeQuery(query);
+        while (rs.next())
+        {
+            int score =rs.getInt("score");
+            int seconds=rs.getInt("seconds");
+            
+            
+           
+            
+            
+        }
+     
+     
+     
+     
+     }
     
     
     
