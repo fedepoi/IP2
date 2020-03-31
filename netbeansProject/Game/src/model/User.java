@@ -34,6 +34,8 @@ public class User {
     this.admin=admin;   
     }
     
+    public int getId(){return id;}
+    
     public void startQuiz(String cat) throws SQLException{
     connection=new DBConnect();
     

@@ -27,6 +27,7 @@ public class DBConnect {
     private Question randQuest;
     private ArrayList<Answer> answers;
     private Category cat;
+    private int scoreId;
             
             
     
@@ -160,6 +161,46 @@ public class DBConnect {
         }
         return cat;
     }
+     
+     public int getScoreId() throws SQLException{
+     
+      String query ="select count(scoreId) as score from scores";
+        rs=st.executeQuery(query);
+        while (rs.next())
+        {
+            scoreId =rs.getInt("score");
+           
+            
+        }
+     
+     return scoreId;
+     
+     }
+     
+     public void addScore(int score){
+      String query = "insert into scores (score) values ('"+score+"')";
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error"+ex);
+        }
+     
+     
+     
+     }
+     
+     
+     public void addQuiz(int catID,int userId,int scoreId){
+         System.out.println("adding quiz");
+     String query = "insert into userquiz (categoryId , scoreId , userId) values ('"+catID+"','"+scoreId+"','"+userId+"');";
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error"+ex);
+        }
+     
+     
+     }
     
     
     
