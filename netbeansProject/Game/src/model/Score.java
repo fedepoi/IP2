@@ -7,6 +7,7 @@ package model;
 
 import controllers.DBConnect;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -28,6 +29,7 @@ public class Score {
     
     }
     
+    public void setDate(Date d){date=d;}
     public void setScore(int s){score=s;}
     public void setTime(int t ){time=t;}
     public int getId(){return id;}

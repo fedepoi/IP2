@@ -106,6 +106,10 @@ public class ScoreController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/home.fxml"));
              Parent windowHome = loader.load();
+             
+             HomeController hcon = loader.getController();
+             hcon.setUser(user);
+             
              Scene windowHomeScene = new Scene(windowHome);
              Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
              window.setScene(windowHomeScene);

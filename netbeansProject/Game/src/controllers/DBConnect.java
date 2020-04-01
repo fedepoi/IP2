@@ -10,6 +10,7 @@ import model.Category;
 import model.Question;
 import model.User;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.TimeZone;
 import java.util.logging.Level;
@@ -181,8 +182,8 @@ public class DBConnect {
      
      }
      
-     public void addScore(int score){
-      String query = "insert into scores (score) values ('"+score+"')";
+     public void addScore(int score,String date){
+      String query = "insert into scores (score, scoreDate) values ('"+ score +"','"+ date +"')";
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {

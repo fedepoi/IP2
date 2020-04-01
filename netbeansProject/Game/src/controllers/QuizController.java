@@ -11,6 +11,10 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -124,6 +128,8 @@ public class QuizController implements Initializable {
     private Question ques;
     private Answer answ;
     private int result=0;
+    private Date date;
+    String strDate;
     
     public int getCat(){return this.category;}
     public void setCat(int c){this.category=c;}
@@ -234,7 +240,17 @@ public class QuizController implements Initializable {
     
     @FXML
     public void play() throws SQLException{
+    date = Calendar.getInstance().getTime();  
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
+    strDate = dateFormat.format(date);  
+    
+    
+        
+        
+        System.out.println(strDate+"-string Date");
         score=new Score();
+        score.setDate(date);
+        System.out.println(date+"-date object");
         setQuestionInBox();
     
      for (Answer a : ques.getAnswers()) { 		      
@@ -298,7 +314,7 @@ public class QuizController implements Initializable {
            window.show();
            
            DBConnect conn = new DBConnect();
-           conn.addScore(result);
+           conn.addScore(result,strDate);
            System.out.println(getCat());
            System.out.println(user.getId());
            System.out.println(score.getId());
