@@ -34,7 +34,7 @@ public class DBConnect {
     public DBConnect () throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ip2d","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ip2final","root","");
             st= conn.createStatement();
             
             

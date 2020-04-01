@@ -21,6 +21,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `ip2d`
 --
+drop database if exists ip2Final;
+CREATE DATABASE IF NOT EXISTS ip2Final DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE ip2Final;
+
+
+
+
 
 -- --------------------------------------------------------
 
@@ -242,7 +249,8 @@ CREATE TABLE `scores` (
   `scoreId` int(3) NOT NULL,
   `quizId` int(3) DEFAULT NULL,
   `score` int(3) NOT NULL,
-  `seconds` int(3) DEFAULT NULL
+  `seconds` int(3) DEFAULT NULL,
+   scoreDate date 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -373,13 +381,13 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `scores`
 --
 ALTER TABLE `scores`
-  MODIFY `scoreId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `scoreId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `userquiz`
 --
 ALTER TABLE `userquiz`
-  MODIFY `quizId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `quizId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `usertable`
