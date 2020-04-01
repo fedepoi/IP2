@@ -22,6 +22,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.User;
@@ -58,7 +59,8 @@ public class HomeController implements Initializable {
     private Button AddCategory;
     private User user;
     public void setUser(User u){user=u;};
-   
+    
+  
    
     
     @Override
@@ -73,9 +75,7 @@ public class HomeController implements Initializable {
              FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/quiz.fxml"));
              Parent windowHome = loader.load();
-             
-             
-             
+               
           // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/quiz.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

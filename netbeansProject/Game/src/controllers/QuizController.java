@@ -7,6 +7,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -14,6 +15,11 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +36,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import model.Answer;
 import model.Question;
 import model.Score;
@@ -121,15 +128,38 @@ public class QuizController implements Initializable {
     public void setCat(int c){this.category=c;}
     public void setUser(User u){user=u;}
    
-    
+    @FXML
+    private Button timer;
+
+    @FXML
+    private Label timerLabel;
+    private static final Integer STARTTIME = 10;
+    private Timeline timeline;
+    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       
+        timerLabel.textProperty().bind(timeSeconds.asString());
+        timerLabel.setTextFill(Color.RED);
+        timerLabel.setStyle("-fx-font-size: 14;");
+                if (timeline != null) {
+                    timeline.stop();
+                }
+                timeSeconds.set(STARTTIME);
+                timeline = new Timeline();
+                timeline.getKeyFrames().add(
+                        new KeyFrame(Duration.seconds(STARTTIME+1),
+                        new KeyValue(timeSeconds, 0)));
+                timeline.playFromStart();
+          
     }    
     
+   
+   
+        
+
     
     @FXML
     public void goToHome(ActionEvent event) throws IOException{
