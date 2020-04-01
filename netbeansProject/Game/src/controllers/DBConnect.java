@@ -182,8 +182,8 @@ public class DBConnect {
      
      }
      
-     public void addScore(int score,String date){
-      String query = "insert into scores (score, scoreDate) values ('"+ score +"','"+ date +"')";
+     public void addScore(int score,String date,int sec){
+      String query = "insert into scores (score, scoreDate, seconds) values ('"+ score +"','"+ date +"','"+sec+"')";
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {

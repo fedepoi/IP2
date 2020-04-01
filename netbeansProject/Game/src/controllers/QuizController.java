@@ -147,7 +147,7 @@ public class QuizController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        /**
         timerLabel.textProperty().bind(timeSeconds.asString());
         timerLabel.setTextFill(Color.RED);
         timerLabel.setStyle("-fx-font-size: 14;");
@@ -168,7 +168,7 @@ public class QuizController implements Initializable {
           
     }    
    });
-   
+   */
     }
    
         
@@ -228,11 +228,15 @@ public class QuizController implements Initializable {
         i++;
         numberQLab.setText(Integer.toString(i));
         setQuestionInBox();        
-        if (i==5){nextQuestion.setDisable(true);
+        if (i==5){
+        nextQuestion.setDisable(true);
         answer1.setDisable(true);
         answer2.setDisable(true);
         answer3.setDisable(true);
         answer4.setDisable(true);
+        submitButton.setDisable(false);
+        timeline.stop();
+        System.out.println(timeSeconds.intValue()+" -:time now in seconds");
         }     
         
     }
@@ -241,16 +245,29 @@ public class QuizController implements Initializable {
     @FXML
     public void play() throws SQLException{
     date = Calendar.getInstance().getTime();  
-    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
     strDate = dateFormat.format(date);  
     
     
-        
+    //timare management
+       timerLabel.textProperty().bind(timeSeconds.asString());
+        timerLabel.setTextFill(Color.RED);
+        timerLabel.setStyle("-fx-font-size: 14;");
+       
+                if (timeline != null) {
+                    timeline.stop();
+                }
+                timeSeconds.set(STARTTIME);
+                timeline = new Timeline();
+                timeline.getKeyFrames().add(
+                        new KeyFrame(Duration.seconds(STARTTIME+1),
+                        new KeyValue(timeSeconds, 0)));
+                timeline.playFromStart();
         
         System.out.println(strDate+"-string Date");
         score=new Score();
         score.setDate(date);
-        System.out.println(date+"-date object");
+        System.out.println(date+" -date object");
         setQuestionInBox();
     
      for (Answer a : ques.getAnswers()) { 		      
@@ -259,6 +276,7 @@ public class QuizController implements Initializable {
       }
      
     this.PlayB.setDisable(true);
+    this.submitButton.setDisable(true);
          
     }
     
@@ -293,6 +311,8 @@ public class QuizController implements Initializable {
      @FXML
     private void openScore(ActionEvent event) throws IOException, SQLException{
          try {
+           timeline.stop();
+           
              FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/score.fxml"));
              Parent windowHome = loader.load();
@@ -314,11 +334,14 @@ public class QuizController implements Initializable {
            window.show();
            
            DBConnect conn = new DBConnect();
-           conn.addScore(result,strDate);
+           conn.addScore(result,strDate, timeSeconds.intValue());
+           
            System.out.println(getCat());
            System.out.println(user.getId());
            System.out.println(score.getId());
            conn.addQuiz(getCat(), user.getId(),score.getId());
+           
+          
            
           
          } catch (IOException ex) {
