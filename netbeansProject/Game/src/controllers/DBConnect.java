@@ -11,6 +11,7 @@ import model.Question;
 import model.User;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,9 +34,12 @@ public class DBConnect {
     
     public DBConnect () throws SQLException {
         try {
+                        
+            
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ip2final","root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ip2final?useJDBCCompliantTimezoneShift=true;useLegacyDatetimeCode=false;serverTimezone=UTC;","root","");
             st= conn.createStatement();
+            
             
             
         } catch (ClassNotFoundException ex) {

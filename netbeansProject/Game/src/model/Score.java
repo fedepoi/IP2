@@ -7,6 +7,7 @@ package model;
 
 import controllers.DBConnect;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  *
@@ -16,6 +17,7 @@ public class Score {
     private int id;
     private int score;
     private int time;
+    private Date date;
     
     public Score() throws SQLException{
     DBConnect con = new DBConnect();
