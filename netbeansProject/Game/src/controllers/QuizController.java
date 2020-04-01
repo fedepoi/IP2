@@ -21,6 +21,7 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -144,6 +145,11 @@ public class QuizController implements Initializable {
         timerLabel.textProperty().bind(timeSeconds.asString());
         timerLabel.setTextFill(Color.RED);
         timerLabel.setStyle("-fx-font-size: 14;");
+        timer.setOnAction(new EventHandler<ActionEvent>(){
+            
+          @Override
+          public void handle(ActionEvent event) {
+        
                 if (timeline != null) {
                     timeline.stop();
                 }
@@ -155,8 +161,9 @@ public class QuizController implements Initializable {
                 timeline.playFromStart();
           
     }    
-    
+   });
    
+    }
    
         
 
