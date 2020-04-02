@@ -20,11 +20,12 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        Parent root = FXMLLoader.load(getClass().getResource("registerSignIn.fxml"));
-        
+
         Scene scene = new Scene(root);
        // scene.setFill(Color.TRANSPARENT);
         //stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
+        //stage.setResizable(true);
         stage.show();
     }
 

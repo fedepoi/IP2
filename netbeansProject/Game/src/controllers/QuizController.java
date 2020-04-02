@@ -135,12 +135,11 @@ public class QuizController implements Initializable {
     public void setCat(int c){this.category=c;}
     public void setUser(User u){user=u;}
    
-    @FXML
-    private Button timer;
+   
 
     @FXML
     private Label timerLabel;
-    private static final Integer STARTTIME = 10;
+    private static final Integer STARTTIME = 30;
     private Timeline timeline;
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
     

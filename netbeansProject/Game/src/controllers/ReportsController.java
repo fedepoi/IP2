@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
@@ -54,10 +55,14 @@ public class ReportsController implements Initializable {
     
     private User user;
     public void setUser(User u){user=u;}
+    
+    @FXML
+    private JFXComboBox<String> selectCategoryYou;
 
-
-  
+    @FXML
+    private JFXComboBox<String> selectCategoryWorld;
      @FXML
+     
     private Button goToHome;
     /**
      * Initializes the controller class.
@@ -65,6 +70,14 @@ public class ReportsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        selectCategoryYou.getItems().add("Maths");
+        selectCategoryYou.getItems().add("Geography");
+        selectCategoryYou.getItems().add("Computer Science");
+        selectCategoryYou.getItems().add("All");
+        selectCategoryWorld.getItems().add("Maths");  
+        selectCategoryWorld.getItems().add("Geography"); 
+        selectCategoryWorld.getItems().add("Computer Science");  
+        selectCategoryWorld.getItems().add("All");  
     }    
      @FXML
     public void goToHome(ActionEvent event) throws IOException{

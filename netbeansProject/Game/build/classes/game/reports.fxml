@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -10,10 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReportsController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReportsController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -49,48 +48,28 @@
             <DropShadow radius="8.75" width="16.0" />
          </effect>
       </HBox>
-      <Pane layoutX="66.0" layoutY="81.0" prefHeight="333.0" prefWidth="319.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="26.0" layoutY="81.0" prefHeight="333.0" prefWidth="338.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label fx:id="ProfileLabel" layoutX="14.0" layoutY="7.0" text="Your scores" textFill="#d31c1c">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Line endX="-245.0" endY="-89.0" layoutX="260.0" layoutY="161.0" startX="41.0" startY="-89.0" stroke="#333333" />
-            <JFXTextField alignment="CENTER" focusColor="#405aa800" layoutX="19.0" layoutY="43.0" prefHeight="30.0" prefWidth="141.0" text="Date" unFocusColor="#4d4d4d00">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField alignment="CENTER" focusColor="#405aa800" layoutX="164.0" layoutY="43.0" prefHeight="30.0" prefWidth="141.0" text="Score" unFocusColor="#4d4d4d00">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXTextField>
-            <TextArea fx:id="personalReportArea" editable="false" layoutX="15.0" layoutY="77.0" prefHeight="242.0" prefWidth="287.0" />
+            <TextArea fx:id="personalReportArea" editable="false" layoutX="8.0" layoutY="77.0" prefHeight="242.0" prefWidth="323.0" />
+            <JFXComboBox fx:id="selectCategoryYou" focusColor="#f78c7b" layoutX="8.0" layoutY="46.0" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
          </children>
       </Pane>
-      <Pane layoutX="430.0" layoutY="81.0" prefHeight="333.0" prefWidth="319.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="375.0" layoutY="81.0" prefHeight="333.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label fx:id="ProfileLabel1" layoutX="14.0" layoutY="7.0" text="Worldwide Scores" textFill="#d31c1c">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Line endX="-245.0" endY="-89.0" layoutX="260.0" layoutY="161.0" startX="41.0" startY="-89.0" stroke="#333333" />
-            <JFXTextField alignment="CENTER" focusColor="#405aa800" layoutX="19.0" layoutY="43.0" prefHeight="30.0" prefWidth="141.0" text="Date" unFocusColor="#4d4d4d00">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField alignment="CENTER" focusColor="#405aa800" layoutX="164.0" layoutY="43.0" prefHeight="30.0" prefWidth="141.0" text="Score" unFocusColor="#4d4d4d00">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXTextField>
-            <TextArea fx:id="worldTReport" editable="false" layoutX="15.0" layoutY="76.0" prefHeight="242.0" prefWidth="287.0" />
+            <TextArea fx:id="worldTReport" editable="false" layoutX="8.0" layoutY="76.0" prefHeight="242.0" prefWidth="385.0" />
+            <JFXComboBox fx:id="selectCategoryWorld" focusColor="#f78c7b" layoutX="8.0" layoutY="44.0" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
          </children>
       </Pane>
-      <Button fx:id="goToHome" layoutX="638.0" layoutY="56.0" mnemonicParsing="false" onAction="#goToHome" styleClass="categoryButtons" stylesheets="@game.css" text="Go to Home Page" />
+      <Button fx:id="goToHome" layoutX="666.0" layoutY="56.0" mnemonicParsing="false" onAction="#goToHome" styleClass="categoryButtons" stylesheets="@game.css" text="Go to Home Page" />
    </children>
 </AnchorPane>

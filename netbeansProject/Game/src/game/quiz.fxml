@@ -63,11 +63,6 @@
       <Button fx:id="submitButton" layoutX="695.0" layoutY="411.0" mnemonicParsing="false" onAction="#openScore" styleClass="playQuiz" stylesheets="@game.css" text="Submit" />
       <HBox layoutX="163.0" layoutY="75.0" prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button fx:id="timer" mnemonicParsing="false" text="Timer">
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin>
-            </Button>
             <Label fx:id="timerLabel" prefHeight="26.0" prefWidth="81.0">
                <HBox.margin>
                   <Insets left="20.0" top="10.0" />

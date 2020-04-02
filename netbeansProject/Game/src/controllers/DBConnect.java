@@ -220,7 +220,7 @@ public class DBConnect {
             int score =rs.getInt("score");
             int seconds=rs.getInt("seconds");
             String date=rs.getString("scoreDate"); 
-            String report ="your score was: "+score + " on date: "+date+ " - "+seconds+"s";
+            String report ="Your score was: "+score + " on date: "+date+ " - "+seconds+"s";
             personalReport.add(report);
             System.out.println(rs.getRow());
             System.out.println(personalReport);
