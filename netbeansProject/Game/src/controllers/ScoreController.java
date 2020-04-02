@@ -82,6 +82,7 @@ public class ScoreController implements Initializable {
     
     public void setUser(User u){user=u;}
     public void setScore(int s){scoreField.setText(Integer.toString(s));}
+    public void setTime (int t){timeField.setText(Integer.toString(t));}
     
 
     /**
