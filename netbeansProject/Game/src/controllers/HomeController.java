@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.User;
 
@@ -102,11 +103,16 @@ public class HomeController implements Initializable {
 @FXML
     private void Logout(ActionEvent event){
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/registerSignIn.fxml"));
+           
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/alertbox.fxml"));
+           Parent windowHome = loader.load();
            Scene windowHomeScene = new Scene(windowHome);
-           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           Stage window = new Stage();
+           window.initModality(Modality.APPLICATION_MODAL);
            window.setScene(windowHomeScene);
-           window.show();
+           window.showAndWait();
        } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        }    
