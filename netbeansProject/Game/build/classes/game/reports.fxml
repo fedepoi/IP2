@@ -55,11 +55,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Line endX="-245.0" endY="-89.0" layoutX="260.0" layoutY="123.0" startX="95.0" startY="-89.0" stroke="#333333" />
-            <TextArea fx:id="personalReportArea" editable="false" layoutX="15.0" layoutY="43.0" prefHeight="276.0" prefWidth="340.0" />
+            <TextArea fx:id="personalReportArea" editable="false" layoutX="8.0" layoutY="77.0" prefHeight="242.0" prefWidth="323.0" />
+            <JFXComboBox fx:id="selectCategoryYou" focusColor="#f78c7b" layoutX="8.0" layoutY="46.0" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
          </children>
       </Pane>
-      <Pane layoutX="416.0" layoutY="81.0" prefHeight="333.0" prefWidth="372.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="375.0" layoutY="81.0" prefHeight="333.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label fx:id="ProfileLabel1" layoutX="14.0" layoutY="7.0" text="Worldwide Scores" textFill="#d31c1c">
                <font>
