@@ -31,6 +31,7 @@ public class DBConnect {
     private Category cat;
     private int scoreId;
     private ArrayList personalReport;
+    private ArrayList worldReport;
             
             
     
@@ -213,44 +214,57 @@ public class DBConnect {
       personalReport = new ArrayList();
       String query ="SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
       "inner JOIN userquiz on userquiz.scoreId=scores.scoreId where userquiz.userId="+userId;
-      
         rs=st.executeQuery(query);
         while (rs.next())
         {
             int score =rs.getInt("score");
             int seconds=rs.getInt("seconds");
-            String date=rs.getString("scoreDate");
-            
+            String date=rs.getString("scoreDate"); 
             String report ="your score was: "+score + " on date: "+date+ " - "+seconds+"s";
-           
-             
             personalReport.add(report);
             System.out.println(rs.getRow());
             System.out.println(personalReport);
             
-            
-            
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        for (Object s : personalReport){
+             sb.append(s);
+             sb.append("\n");
+       }
+       System.out.println(sb.toString());
+     return sb.toString();
+     }
+     
+      public String getWorldScore() throws SQLException{
+      worldReport = new ArrayList();
+      String query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+                    "inner JOIN userquiz on userquiz.scoreId=scores.scoreId \n" +
+                    "inner JOIN usertable on userquiz.userId=usertable.userId";
+        rs=st.executeQuery(query);
+        while (rs.next())
+        {
+            int score =rs.getInt("score");
+            int seconds=rs.getInt("seconds");
+            String date=rs.getString("scoreDate"); 
+            String mail=rs.getString("email");
+            String report ="ID : "+ mail + " your score was: "+score + " on date: "+date+ " - "+seconds+"s";
+            worldReport.add(report);
+            System.out.println(rs.getRow());
+            System.out.println(worldReport);
             
         }
         
-        
         StringBuilder sb = new StringBuilder();
-        for (Object s : personalReport)
-       {
-       sb.append(s);
-       sb.append("\n");
+        for (Object s : worldReport){
+             sb.append(s);
+             sb.append("\n");
        }
        System.out.println(sb.toString());
-
      return sb.toString();
-     
-     
      }
-    
-    
-    
-    
-    
-    
+     
+     
+     
     
 }

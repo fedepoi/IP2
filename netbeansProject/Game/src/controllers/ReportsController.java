@@ -49,6 +49,8 @@ public class ReportsController implements Initializable {
     private Label ProfileLabel1;
      @FXML
     private TextArea personalReportArea;
+    @FXML
+    private TextArea worldTReport;
     
     private User user;
     public void setUser(User u){user=u;}
@@ -80,16 +82,13 @@ public class ReportsController implements Initializable {
     
     public void setScoresInArea(User u) throws SQLException{
         DBConnect conn = new DBConnect();
-       String report = conn.getScore(u.getId());
-        
-       
-        
+        String report = conn.getScore(u.getId());
         personalReportArea.setText(report);
         
-    
-    
-    
-    
+        String worldReport = conn.getWorldScore();
+        worldTReport.setText(worldReport);
+        
+        
     }
     
     
