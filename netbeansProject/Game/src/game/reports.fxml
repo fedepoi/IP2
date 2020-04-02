@@ -66,8 +66,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea fx:id="worldTReport" editable="false" layoutX="8.0" layoutY="76.0" prefHeight="242.0" prefWidth="385.0" />
-            <JFXComboBox fx:id="selectCategoryWorld" focusColor="#f78c7b" layoutX="8.0" layoutY="44.0" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
          </children>
       </Pane>
       <Button fx:id="goToHome" layoutX="666.0" layoutY="56.0" mnemonicParsing="false" onAction="#goToHome" styleClass="categoryButtons" stylesheets="@game.css" text="Go to Home Page" />

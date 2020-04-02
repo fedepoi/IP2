@@ -243,6 +243,7 @@ public class QuizController implements Initializable {
     
     @FXML
     public void play() throws SQLException{
+    System.out.println(user.toString()+"user in quiz controller ......----.....");
     date = Calendar.getInstance().getTime();  
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
     strDate = dateFormat.format(date);  
