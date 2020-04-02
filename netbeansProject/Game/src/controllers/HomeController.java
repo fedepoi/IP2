@@ -149,7 +149,7 @@ public class HomeController implements Initializable {
     }
     
  @FXML
-    private void openReports(ActionEvent event) throws IOException{
+    private void openReports(ActionEvent event) throws IOException, SQLException{
          try {
              FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/reports.fxml"));
@@ -157,6 +157,7 @@ public class HomeController implements Initializable {
              
              ReportsController rController = loader.getController();
              rController.setUser(user);
+             rController.setScoresInArea(user);
              
              
              

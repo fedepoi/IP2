@@ -8,6 +8,8 @@ package controllers;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import model.User;
 
@@ -44,6 +47,8 @@ public class ReportsController implements Initializable {
 
     @FXML
     private Label ProfileLabel1;
+     @FXML
+    private TextArea personalReportArea;
     
     private User user;
     public void setUser(User u){user=u;}
@@ -73,15 +78,14 @@ public class ReportsController implements Initializable {
        }   
      }
     
-    public void setScoresInArea(User u){
+    public void setScoresInArea(User u) throws SQLException{
+        DBConnect conn = new DBConnect();
+       String report = conn.getScore(u.getId());
         
+       
         
-    
-    
-    
-    
-    
-    
+        personalReportArea.setText(report);
+        
     
     
     

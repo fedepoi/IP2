@@ -30,6 +30,7 @@ public class DBConnect {
     private ArrayList<Answer> answers;
     private Category cat;
     private int scoreId;
+    private ArrayList personalReport;
             
             
     
@@ -208,24 +209,40 @@ public class DBConnect {
      }
      
      
-     public void getScore() throws SQLException{
-    
-      String query ="SELECT scores.score,scores.seconds, userquiz.userId FROM scores\n" +
-      "inner JOIN userquiz on userquiz.scoreId=scores.scoreId";
+     public String getScore(int userId) throws SQLException{
+      personalReport = new ArrayList();
+      String query ="SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+      "inner JOIN userquiz on userquiz.scoreId=scores.scoreId where userquiz.userId="+userId;
       
         rs=st.executeQuery(query);
         while (rs.next())
         {
             int score =rs.getInt("score");
             int seconds=rs.getInt("seconds");
+            String date=rs.getString("scoreDate");
             
-            
+            String report ="your score was: "+score + " on date: "+date+ " - "+seconds+"s";
            
+             
+            personalReport.add(report);
+            System.out.println(rs.getRow());
+            System.out.println(personalReport);
+            
+            
             
             
         }
-     
-     
+        
+        
+        StringBuilder sb = new StringBuilder();
+        for (Object s : personalReport)
+       {
+       sb.append(s);
+       sb.append("\n");
+       }
+       System.out.println(sb.toString());
+
+     return sb.toString();
      
      
      }
