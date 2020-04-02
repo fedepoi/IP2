@@ -212,7 +212,7 @@ public class DBConnect {
      
      public String getScore(int userId) throws SQLException{
       personalReport = new ArrayList();
-      String query ="SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+      String query ="SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.categoryId, userquiz.userId FROM scores\n" +
       "inner JOIN userquiz on userquiz.scoreId=scores.scoreId where userquiz.userId="+userId;
         rs=st.executeQuery(query);
         while (rs.next())
@@ -220,7 +220,8 @@ public class DBConnect {
             int score =rs.getInt("score");
             int seconds=rs.getInt("seconds");
             String date=rs.getString("scoreDate"); 
-            String report ="your score was: "+score + " on date: "+date+ " - "+seconds+"s";
+            int cat= rs.getInt("categoryId");
+            String report ="your score was: "+score + " on date: "+date+ " - "+seconds+"s"+" for cat : "+cat;
             personalReport.add(report);
             System.out.println(rs.getRow());
             System.out.println(personalReport);
@@ -238,7 +239,7 @@ public class DBConnect {
      
       public String getWorldScore() throws SQLException{
       worldReport = new ArrayList();
-      String query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+      String query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate,userquiz.categoryId, userquiz.userId FROM scores\n" +
                     "inner JOIN userquiz on userquiz.scoreId=scores.scoreId \n" +
                     "inner JOIN usertable on userquiz.userId=usertable.userId";
         rs=st.executeQuery(query);
@@ -248,7 +249,8 @@ public class DBConnect {
             int seconds=rs.getInt("seconds");
             String date=rs.getString("scoreDate"); 
             String mail=rs.getString("email");
-            String report ="ID : "+ mail + " your score was: "+score + " on date: "+date+ " - "+seconds+"s";
+            int cat= rs.getInt("categoryId");
+            String report ="ID : "+ mail + " your score was: "+score + " on date: "+date+ " - "+seconds+"s"+" for cat : "+cat;
             worldReport.add(report);
             System.out.println(rs.getRow());
             System.out.println(worldReport);
