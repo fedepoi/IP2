@@ -329,6 +329,7 @@ public class QuizController implements Initializable {
           
            ScoreController sCon= loader.getController();
            sCon.setScore(result);
+           sCon.setTime(timeSeconds.intValue());
            
            
            window.setScene(windowHomeScene);
