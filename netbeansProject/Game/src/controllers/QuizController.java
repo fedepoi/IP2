@@ -17,10 +17,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -130,20 +132,13 @@ public class QuizController implements Initializable {
     private int result=0;
     private Date date;
     String strDate;
-   /** 
-   private static final Integer STARTTIMEAnswer= 30; 
-   private IntegerProperty timeSecondsAnswer = new SimpleIntegerProperty(STARTTIME);
-   final Timeline timelineAnswer = new Timeline(new KeyFrame(Duration.ZERO, new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    try {
-                        nextQuestion();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(QuizController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }) , new KeyFrame(Duration.seconds(2)));
-    */
+   
+   private static final Integer STARTTIMEAnswer= 3; 
+   private IntegerProperty timeSecondsAnswer = new SimpleIntegerProperty(STARTTIMEAnswer);
+   private Timeline timelineAnswer;
+                  
+   
+    
     
     public int getCat(){return this.category;}
     public void setCat(int c){this.category=c;}
@@ -153,6 +148,7 @@ public class QuizController implements Initializable {
 
     @FXML
     private Label timerLabel;
+    
     private static final Integer STARTTIME = 30;
     private Timeline timeline;
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
@@ -241,7 +237,7 @@ public class QuizController implements Initializable {
         i++;
         numberQLab.setText(Integer.toString(i));
         setQuestionInBox();        
-        if (i==5){
+        if (i==6){
         nextQuestion.setDisable(true);
         answer1.setDisable(true);
         answer2.setDisable(true);
@@ -305,25 +301,83 @@ public class QuizController implements Initializable {
                              "    -fx-border-color:green;\n" +
                              "    -fx-background-color:green;\n" +
                              "}");
-        } else System.out.println("false");
-           
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer1.setStyle(""));
+           pause.play();
+           nextQuestion();
             
-            nextQuestion();
+        } else {System.out.println("false");
+         answer1.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:red;\n" +
+                             "    -fx-background-color:red;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer1.setStyle(""));
+           pause.play();
+           nextQuestion();}
         }        
         else  if(event.getSource()==answer2){
         Answer a = (Answer) answer2.getUserData();
-        if (a.getCorrect()){System.out.println("correct");} else System.out.println("false");
-           nextQuestion();       
+        if (a.getCorrect()){System.out.println("correct");result++;
+        answer2.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:green;\n" +
+                             "    -fx-background-color:green;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer2.setStyle(""));
+           pause.play();
+           nextQuestion();
+        } else {System.out.println("false");
+        answer2.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:red;\n" +
+                             "    -fx-background-color:red;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer2.setStyle(""));
+           pause.play();
+           nextQuestion();}       
         }
          else  if(event.getSource()==answer3){
         Answer a = (Answer) answer3.getUserData();
-        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
-        nextQuestion();
+        if (a.getCorrect()){System.out.println("correct"); result++;
+        answer3.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:green;\n" +
+                             "    -fx-background-color:green;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer3.setStyle(""));
+           pause.play();
+           nextQuestion();
+        } else {System.out.println("false");
+         answer3.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:red;\n" +
+                             "    -fx-background-color:red;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer3.setStyle(""));
+           pause.play();
+        nextQuestion();}
          }
          else  if(event.getSource()==answer4){
         Answer a = (Answer) answer4.getUserData();
-        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
-        nextQuestion();
+        if (a.getCorrect()){System.out.println("correct"); result++;
+        answer4.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:green;\n" +
+                             "    -fx-background-color:green;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer4.setStyle(""));
+           pause.play();
+           nextQuestion();
+        } else {System.out.println("false");
+         answer4.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:red;\n" +
+                             "    -fx-background-color:red;\n" +
+                             "}");
+           PauseTransition pause = new PauseTransition(Duration.millis(200));
+           pause.setOnFinished(e -> answer4.setStyle(""));
+           pause.play();
+        nextQuestion();}
          }
         
         System.out.println(result);
@@ -373,5 +427,6 @@ public class QuizController implements Initializable {
                
     
 }
+    
     
 }
