@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXPasswordField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -64,13 +65,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private JFXTextField LastNameTextReg;
     @FXML
-    private JFXTextField EmailTextReg;
+    private JFXPasswordField EmailTextReg;
     @FXML
-    private JFXTextField PasswordTextReg;
+    private JFXPasswordField PasswordTextReg;
     @FXML
     private JFXTextField EmailTextSignIn;
     @FXML
-    private JFXTextField PasswordTextSignIn;
+    private JFXPasswordField PasswordTextSignIn;
     @FXML
     private CheckBox checkBoxA;    
  
@@ -109,7 +110,7 @@ public class FXMLDocumentController implements Initializable {
     private JFXTextField EmailTextSetAdmin;
 
     @FXML
-    private JFXTextField PasswordTextSetAdmin;
+    private JFXPasswordField PasswordTextSetAdmin;
     
     @FXML
     private CheckBox becomeUserCheckBox;
