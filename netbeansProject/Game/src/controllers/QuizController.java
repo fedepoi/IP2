@@ -130,6 +130,20 @@ public class QuizController implements Initializable {
     private int result=0;
     private Date date;
     String strDate;
+   /** 
+   private static final Integer STARTTIMEAnswer= 30; 
+   private IntegerProperty timeSecondsAnswer = new SimpleIntegerProperty(STARTTIME);
+   final Timeline timelineAnswer = new Timeline(new KeyFrame(Duration.ZERO, new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    try {
+                        nextQuestion();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(QuizController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }) , new KeyFrame(Duration.seconds(2)));
+    */
     
     public int getCat(){return this.category;}
     public void setCat(int c){this.category=c;}
@@ -281,11 +295,19 @@ public class QuizController implements Initializable {
     }
     
     @FXML
-    public void getCorrect(ActionEvent event) throws SQLException{
+    public void getCorrect(ActionEvent event) throws SQLException, InterruptedException{
       
         if(event.getSource()==answer1){
         Answer a = (Answer) answer1.getUserData();
-        if (a.getCorrect()){System.out.println("correct"); result++;} else System.out.println("false");
+        if (a.getCorrect()){
+            System.out.println("correct"); result++;
+            answer1.setStyle(".answer:pressed{\n" +
+                             "    -fx-border-color:green;\n" +
+                             "    -fx-background-color:green;\n" +
+                             "}");
+        } else System.out.println("false");
+           
+            
             nextQuestion();
         }        
         else  if(event.getSource()==answer2){
