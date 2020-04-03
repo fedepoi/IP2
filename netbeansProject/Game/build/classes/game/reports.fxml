@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReportsController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReportsController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -56,7 +56,7 @@
                </font>
             </Label>
             <TextArea fx:id="personalReportArea" editable="false" layoutX="8.0" layoutY="77.0" prefHeight="242.0" prefWidth="323.0" />
-            <JFXComboBox fx:id="selectCategoryYou" focusColor="#f78c7b" layoutX="8.0" layoutY="46.0" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
+            <JFXComboBox fx:id="selectCategoryYou" focusColor="#f78c7b" layoutX="8.0" layoutY="46.0" onAction="#setpersonalScore" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
          </children>
       </Pane>
       <Pane layoutX="375.0" layoutY="81.0" prefHeight="333.0" prefWidth="402.0" style="-fx-background-color: #ffffff;">
@@ -67,7 +67,7 @@
                </font>
             </Label>
             <TextArea fx:id="worldTReport" editable="false" layoutX="8.0" layoutY="77.0" prefHeight="242.0" prefWidth="383.0" />
-            <JFXComboBox fx:id="selectCategoryWorld" focusColor="#f78c7b" layoutX="8.0" layoutY="46.0" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
+            <JFXComboBox fx:id="selectCategoryWorld" focusColor="#f78c7b" layoutX="8.0" layoutY="46.0" onAction="#setWorldScore" prefHeight="25.0" prefWidth="120.0" promptText="Select Category" unFocusColor="#d0caca" />
          </children>
       </Pane>
       <Button fx:id="goToHome" layoutX="666.0" layoutY="56.0" mnemonicParsing="false" onAction="#goToHome" styleClass="categoryButtons" stylesheets="@game.css" text="Go to Home Page" />

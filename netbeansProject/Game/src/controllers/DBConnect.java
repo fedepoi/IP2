@@ -210,10 +210,16 @@ public class DBConnect {
      }
      
      
-     public String getScore(int userId) throws SQLException{
+     public String getScore(int userId, int cat) throws SQLException{
       personalReport = new ArrayList();
-      String query ="SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+      String query;
+      if (cat>0){
+      query = "SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+      "inner JOIN userquiz on userquiz.scoreId=scores.scoreId where userquiz.userId="+userId+ " AND userquiz.categoryId="+cat;
+      }
+      else query = "SELECT scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
       "inner JOIN userquiz on userquiz.scoreId=scores.scoreId where userquiz.userId="+userId;
+      
         rs=st.executeQuery(query);
         while (rs.next())
         {
@@ -236,11 +242,22 @@ public class DBConnect {
      return sb.toString();
      }
      
-      public String getWorldScore() throws SQLException{
+      public String getWorldScore(int cat) throws SQLException{
       worldReport = new ArrayList();
-      String query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+      String query;
+      if (cat>0){
+      query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
+                    "inner JOIN userquiz on userquiz.scoreId=scores.scoreId \n" +
+                    "inner JOIN usertable on userquiz.userId=usertable.userId where usertable.categoryId="+cat;
+      }
+      else query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
                     "inner JOIN userquiz on userquiz.scoreId=scores.scoreId \n" +
                     "inner JOIN usertable on userquiz.userId=usertable.userId";
+              
+              
+              
+              
+              
         rs=st.executeQuery(query);
         while (rs.next())
         {

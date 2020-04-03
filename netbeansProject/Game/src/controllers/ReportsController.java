@@ -70,14 +70,16 @@ public class ReportsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        selectCategoryYou.getItems().add("Maths");
+        selectCategoryYou.getItems().add("All");
+        selectCategoryYou.getItems().add("maths");
         selectCategoryYou.getItems().add("Geography");
         selectCategoryYou.getItems().add("Computer Science");
-        selectCategoryYou.getItems().add("All");
+        
+        selectCategoryWorld.getItems().add("All"); 
         selectCategoryWorld.getItems().add("Maths");  
         selectCategoryWorld.getItems().add("Geography"); 
         selectCategoryWorld.getItems().add("Computer Science");  
-        selectCategoryWorld.getItems().add("All");  
+         
     }    
      @FXML
     public void goToHome(ActionEvent event) throws IOException{
@@ -88,6 +90,7 @@ public class ReportsController implements Initializable {
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           System.out.println(selectCategoryYou.getSelectionModel().getSelectedIndex()+"selectionmodel...............");
        } catch (IOException ex) {
            Logger.getLogger(controllers.ReportsController.class.getName()).log(Level.SEVERE, null, ex);
        }   
@@ -95,15 +98,29 @@ public class ReportsController implements Initializable {
     
     public void setScoresInArea(User u) throws SQLException{
         DBConnect conn = new DBConnect();
-        String report = conn.getScore(u.getId());
+        String report = conn.getScore(u.getId(),selectCategoryYou.getSelectionModel().getSelectedIndex());
         personalReportArea.setText(report);
         
-        String worldReport = conn.getWorldScore();
+        String worldReport = conn.getWorldScore(0);
         worldTReport.setText(worldReport);
+        
         
         
     }
     
+    public void setpersonalScore() throws SQLException{
+        DBConnect conn = new DBConnect();
+        String report = conn.getScore(user.getId(),selectCategoryYou.getSelectionModel().getSelectedIndex());
+        personalReportArea.setText(report);
+    }
+    
+    public void setWorldScore() throws SQLException{
+    DBConnect conn = new DBConnect();
+    String report = conn.getScore(user.getId(),selectCategoryWorld.getSelectionModel().getSelectedIndex());
+    worldTReport.setText(report);
+    
+    
+    }
     
     
     
