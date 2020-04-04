@@ -8,6 +8,7 @@ package controllers;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  * FXML Controller class
@@ -77,6 +79,9 @@ public class SettingsUserController implements Initializable {
     
     @FXML
     private Button goToHome;
+    
+    private User user;
+    public void setUser(User u){user=u;};
 
     /**
      * Initializes the controller class.
@@ -105,14 +110,41 @@ public class SettingsUserController implements Initializable {
     public void goToHome(ActionEvent event) throws IOException{
     
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/home.fxml"));
+           Parent windowHome = loader.load();    
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           HomeController h = loader.getController();
+           h.setUser(user);
        } catch (IOException ex) {
            Logger.getLogger(controllers.SettingsUserController.class.getName()).log(Level.SEVERE, null, ex);
        }   
      }
+    
+    @FXML
+    public void updateDetails(ActionEvent event) throws SQLException, IOException{
+         int a;
+        if (becomeAdminCheckBox.isSelected()==true)
+        {
+          a=1;
+        } else a=0;
+    DBConnect conn = new DBConnect();
+    conn.updateUser(user, FirstNameTextSetUser.getText(), LastNameTextSetUser.getText(), EmailTextSetUser.getText(), PasswordTextSetUser.getText(),a);
+    user.setName(FirstNameTextSetUser.getText());
+    user.setLName(LastNameTextSetUser.getText());
+    user.setMail(EmailTextSetUser.getText());
+    user.setPass(PasswordTextSetUser.getText());
+    user.setAdmin(becomeAdminCheckBox.isSelected());   
+    goToHome(event);
+    
+    
+    
+    
+    
+    }
     
 }

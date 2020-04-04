@@ -280,6 +280,24 @@ public class DBConnect {
        System.out.println(sb.toString());
      return sb.toString();
      }
+      
+      public void updateUser(User u,String fName,String lName,String mail,String pass,int admin){
+        String query = "UPDATE usertable"
+                + "SET firstname = '"+fName
+                +"' , lastname = '"+lName
+                +"' , email = '"+mail
+                +"' , password = '"
+                +pass+"' , admin = '"
+                +admin+"' where userId = '"
+                +u.getId()+"';";
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error"+ex);
+        }  
+        
+       
+      }
      
      
      

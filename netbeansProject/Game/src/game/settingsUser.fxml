@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="settingsUserPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsUserController">
+<AnchorPane id="AnchorPane" fx:id="settingsUserPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsUserController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -88,7 +88,7 @@
                         <Insets />
                      </opaqueInsets>
                   </CheckBox>
-                  <Button fx:id="SaveProfileButtonUser" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
+                  <Button fx:id="SaveProfileButtonUser" mnemonicParsing="false" onAction="#updateDetails" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="180.0" right="15.0" top="55.0" />
                      </HBox.margin>

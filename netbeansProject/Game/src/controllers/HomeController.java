@@ -144,12 +144,17 @@ public class HomeController implements Initializable {
          
     
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/settingsUser.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/settingsUser.fxml"));
+           Parent windowHome = loader.load();   
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/settingsUser.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            
            window.setScene(windowHomeScene);
            window.show();
+           SettingsUserController userCon = loader.getController();
+           userCon.setUser(user);
           
            
        } catch (IOException ex) {

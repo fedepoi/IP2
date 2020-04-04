@@ -37,6 +37,17 @@ public class User {
     public int getId(){return id;}
     public boolean getAdmin(){return this.admin;}
     
+    public void setId(int id){this.id=id;}
+    public void setName(String name){this.fName=name;}
+    public void setLName(String lName){this.lName=lName;}
+    public void setMail(String mail){this.email=mail;}
+    public void setPass(String pass){this.password=pass;}
+    public void setAdmin(boolean admin){this.admin=admin;}
+    
+    
+    
+    
+    
     public void startQuiz(String cat) throws SQLException{
     connection=new DBConnect();
     
