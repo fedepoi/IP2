@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AdminSettingsPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.SettingsAdminController">
+<AnchorPane id="AnchorPane" fx:id="AdminSettingsPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsAdminController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -94,7 +94,7 @@
                         <Insets />
                      </opaqueInsets>
                   </CheckBox>
-                  <Button fx:id="SaveProfileButtonAdmin" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
+                  <Button fx:id="SaveProfileButtonAdmin" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="180.0" right="15.0" top="80.0" />
                      </HBox.margin>
@@ -151,12 +151,12 @@
             </JFXTextField>
             <HBox fx:id="HBoxregister1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="deleteEditAdmin" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Delete">
+                  <Button fx:id="deleteEditAdmin" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Delete">
                      <HBox.margin>
                         <Insets left="120.0" right="-160.0" top="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="saveEditAdmin" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
+                  <Button fx:id="saveEditAdmin" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="180.0" right="15.0" top="20.0" />
                      </HBox.margin>
