@@ -35,6 +35,7 @@ public class User {
     }
     
     public int getId(){return id;}
+    public boolean getAdmin(){return this.admin;}
     
     public void startQuiz(String cat) throws SQLException{
     connection=new DBConnect();

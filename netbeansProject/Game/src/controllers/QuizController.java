@@ -304,7 +304,7 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer1.setStyle(""));
            pause.play();
-           nextQuestion();
+           //nextQuestion();
             
         } else {System.out.println("false");
          answer1.setStyle(".answer:pressed{\n" +
@@ -314,7 +314,8 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer1.setStyle(""));
            pause.play();
-           nextQuestion();}
+          // nextQuestion();
+        }
         }        
         else  if(event.getSource()==answer2){
         Answer a = (Answer) answer2.getUserData();
@@ -326,7 +327,7 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer2.setStyle(""));
            pause.play();
-           nextQuestion();
+          // nextQuestion();
         } else {System.out.println("false");
         answer2.setStyle(".answer:pressed{\n" +
                              "    -fx-border-color:red;\n" +
@@ -335,7 +336,8 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer2.setStyle(""));
            pause.play();
-           nextQuestion();}       
+           //nextQuestion();
+        }       
         }
          else  if(event.getSource()==answer3){
         Answer a = (Answer) answer3.getUserData();
@@ -347,7 +349,7 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer3.setStyle(""));
            pause.play();
-           nextQuestion();
+           //nextQuestion();
         } else {System.out.println("false");
          answer3.setStyle(".answer:pressed{\n" +
                              "    -fx-border-color:red;\n" +
@@ -356,7 +358,8 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer3.setStyle(""));
            pause.play();
-        nextQuestion();}
+       // nextQuestion();
+        }
          }
          else  if(event.getSource()==answer4){
         Answer a = (Answer) answer4.getUserData();
@@ -368,7 +371,7 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer4.setStyle(""));
            pause.play();
-           nextQuestion();
+           //nextQuestion();
         } else {System.out.println("false");
          answer4.setStyle(".answer:pressed{\n" +
                              "    -fx-border-color:red;\n" +
@@ -377,10 +380,12 @@ public class QuizController implements Initializable {
            PauseTransition pause = new PauseTransition(Duration.millis(200));
            pause.setOnFinished(e -> answer4.setStyle(""));
            pause.play();
-        nextQuestion();}
+        //nextQuestion();
+        }
          }
         
         System.out.println(result);
+        nextQuestion();
         
     }
     

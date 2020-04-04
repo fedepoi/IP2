@@ -248,7 +248,7 @@ public class DBConnect {
       if (cat>0){
       query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
                     "inner JOIN userquiz on userquiz.scoreId=scores.scoreId \n" +
-                    "inner JOIN usertable on userquiz.userId=usertable.userId where usertable.categoryId="+cat;
+                    "inner JOIN usertable on userquiz.userId=usertable.userId where userquiz.categoryId="+cat;
       }
       else query ="SELECT usertable.email, scores.score,scores.seconds,scores.scoreDate, userquiz.userId FROM scores\n" +
                     "inner JOIN userquiz on userquiz.scoreId=scores.scoreId \n" +

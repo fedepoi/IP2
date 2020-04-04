@@ -116,7 +116,7 @@ public class ReportsController implements Initializable {
     
     public void setWorldScore() throws SQLException{
     DBConnect conn = new DBConnect();
-    String report = conn.getScore(user.getId(),selectCategoryWorld.getSelectionModel().getSelectedIndex());
+    String report = conn.getWorldScore(selectCategoryWorld.getSelectionModel().getSelectedIndex());
     worldTReport.setText(report);
     
     

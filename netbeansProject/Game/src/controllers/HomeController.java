@@ -122,7 +122,11 @@ public class HomeController implements Initializable {
       @FXML
     private void openSettingsAdmin(ActionEvent event) throws IOException{
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/settingsAdmin.fxml"));
+             
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/settingsAdmin.fxml"));
+           Parent windowHome = loader.load();           
+           //Parent windowHome = FXMLLoader.load(getClass().getResource("/game/settingsAdmin.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
@@ -152,6 +156,14 @@ public class HomeController implements Initializable {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        } 
       
+    }
+    @FXML
+    public void checkUser(ActionEvent event) throws IOException{
+        System.out.println(user.getAdmin()+"  I AM AN ADMIN?");
+        if(user.getAdmin()==true){
+            openSettingsAdmin(event);}
+        else {openSettingsUser(event);}
+    
     }
     
  @FXML
