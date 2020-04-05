@@ -409,7 +409,8 @@ public class QuizController implements Initializable {
           
            ScoreController sCon= loader.getController();
            sCon.setScore(result);
-           sCon.setTime(timeSeconds.intValue());
+           sCon.setTime(30 - timeSeconds.intValue());
+           sCon.setRating(checkRating());
            
            
            window.setScene(windowHomeScene);
@@ -432,6 +433,23 @@ public class QuizController implements Initializable {
                
     
 }
+    public int checkRating(){
+    if(30-timeSeconds.intValue()>=0 && 30-timeSeconds.intValue()<=5){
+    return 5;
+    }
+    else if(30-timeSeconds.intValue()>=6 && 30-timeSeconds.intValue()<=11){
+    return 4;
+    } 
+    else if(30-timeSeconds.intValue()>=12 && 30-timeSeconds.intValue()<=17){
+    return 3;
+    }
+    if(30-timeSeconds.intValue()>=18 && 30-timeSeconds.intValue()<=23){
+    return 2;
+    }
+    else return 1;    
+    
+    }
+    
     
     
 }

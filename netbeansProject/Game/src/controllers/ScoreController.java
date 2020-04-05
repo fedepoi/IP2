@@ -83,6 +83,7 @@ public class ScoreController implements Initializable {
     public void setUser(User u){user=u;}
     public void setScore(int s){scoreField.setText(Integer.toString(s));}
     public void setTime (int t){timeField.setText(Integer.toString(t));}
+    public void setRating(int rat){ratingStars.setRating(rat);}
     
 
     /**
@@ -91,6 +92,7 @@ public class ScoreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        /**
            ratingStars.ratingProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -98,7 +100,7 @@ public class ScoreController implements Initializable {
                 labelRating.setText("Rating: " + newValue.toString());
             }
         });
-        
+        */
     }    
      @FXML
     public void goHome(ActionEvent event) throws IOException{
