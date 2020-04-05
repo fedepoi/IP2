@@ -132,6 +132,7 @@ public class SettingsUserController implements Initializable {
         {
           a=1;
         } else a=0;
+    System.out.print(user);
     DBConnect conn = new DBConnect();
     conn.updateUser(user, FirstNameTextSetUser.getText(), LastNameTextSetUser.getText(), EmailTextSetUser.getText(), PasswordTextSetUser.getText(),a);
     user.setName(FirstNameTextSetUser.getText());
@@ -140,11 +141,6 @@ public class SettingsUserController implements Initializable {
     user.setPass(PasswordTextSetUser.getText());
     user.setAdmin(becomeAdminCheckBox.isSelected());   
     goToHome(event);
-    
-    
-    
-    
-    
     }
     
 }

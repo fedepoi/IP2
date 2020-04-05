@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/controllers/SettingsUserController.java</file>
+            <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/controllers/ReportsController.java</file>
+            <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/model/Question.java</file>
             <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/controllers/DBConnect.java</file>
             <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/controllers/HomeController.java</file>
             <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/model/User.java</file>
-            <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/controllers/RegisterSignInController.java</file>
+            <file>file:/C:/Users/feder/Documents/GitHub/IP2/netbeansProject/Game/src/controllers/SettingsAdminController.java</file>
         </group>
     </open-files>
 </project-private>

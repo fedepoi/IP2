@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  * FXML Controller class
@@ -111,6 +113,8 @@ public class SettingsAdminController implements Initializable {
 
     @FXML
     private Button saveEditAdmin;
+    private User user;
+    public void setUser(User u){user=u;};
 
     
     
@@ -123,17 +127,45 @@ public class SettingsAdminController implements Initializable {
         categoryComboBox.getItems().add("Maths");
         categoryComboBox.getItems().add("Geography");
         categoryComboBox.getItems().add("Computer Science"); 
+        
+        DBConnect conn;
+        try {
+            conn = new DBConnect();
+            
+            // questionComboBox.getItems().addAll(conn.getQuestionByCat(2));
+        } catch (SQLException ex) {
+            Logger.getLogger(SettingsAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }   
     
      @FXML
     public void goToHome(ActionEvent event) throws IOException{
     
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/home.fxml"));
+           Parent windowHome = loader.load();
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           HomeController h = loader.getController();
+           h.setUser(user);
        } catch (IOException ex) {
            Logger.getLogger(controllers.SettingsAdminController.class.getName()).log(Level.SEVERE, null, ex);
        }   
@@ -153,5 +185,28 @@ public class SettingsAdminController implements Initializable {
        }    
                
     }
+    
+     @FXML
+    public void updateDetails(ActionEvent event) throws SQLException, IOException{
+         int a;
+        if (becomeUserCheckBox.isSelected()==true)
+        {
+          a=0;
+        } else a=1;
+    System.out.print(user);
+    DBConnect conn = new DBConnect();
+    conn.updateUser(user, FirstNameTextSetAdmin.getText(), LastNameTextSetAdmin.getText(), EmailTextSetAdmin.getText(), PasswordTextSetAdmin.getText(),a);
+    user.setName(FirstNameTextSetAdmin.getText());
+    user.setLName(LastNameTextSetAdmin.getText());
+    user.setMail(EmailTextSetAdmin.getText());
+    user.setPass(PasswordTextSetAdmin.getText());
+    user.setAdmin(becomeUserCheckBox.isSelected());   
+    goToHome(event);
+    }
+    
+    
+    
+    
+    
     
 }

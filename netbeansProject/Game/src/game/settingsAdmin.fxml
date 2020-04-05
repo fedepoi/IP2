@@ -94,7 +94,7 @@
                         <Insets />
                      </opaqueInsets>
                   </CheckBox>
-                  <Button fx:id="SaveProfileButtonAdmin" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
+                  <Button fx:id="SaveProfileButtonAdmin" mnemonicParsing="false" onAction="#updateDetails" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Save" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="180.0" right="15.0" top="80.0" />
                      </HBox.margin>

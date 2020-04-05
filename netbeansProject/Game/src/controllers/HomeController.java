@@ -131,6 +131,8 @@ public class HomeController implements Initializable {
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           SettingsAdminController adminCon = loader.getController();
+           adminCon.setUser(user);
           
            
        } catch (IOException ex) {

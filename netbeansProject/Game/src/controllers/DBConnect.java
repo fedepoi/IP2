@@ -32,6 +32,7 @@ public class DBConnect {
     private int scoreId;
     private ArrayList personalReport;
     private ArrayList worldReport;
+    private ArrayList questionByCat;
             
             
     
@@ -148,12 +149,6 @@ public class DBConnect {
     
     return answers;
     }
-    
-    
-    
-    
-    
-    
     
      public Category getCategorySQL(int idc) throws SQLException{
          
@@ -282,7 +277,7 @@ public class DBConnect {
      }
       
       public void updateUser(User u,String fName,String lName,String mail,String pass,int admin){
-        String query = "UPDATE usertable"
+        String query = "UPDATE usertable \n"
                 +"SET firstname='"+fName+"',"
                 +"lastname='"+lName+"',"
                 +"email='"+mail+"',"
@@ -297,13 +292,31 @@ public class DBConnect {
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {
-           System.out.println(  "error"+ex);
+           System.out.println(  "error:\n"+ex);
         }  
         
        
       }
      
      
+     public ArrayList getQuestionByCat(int cat) throws SQLException{
      
+     
+     String query="SELECT questionId, questionDesc FROM `questions` where categoryId="+cat;
+     
+      rs=st.executeQuery(query);
+        
+        while(rs.next()){
+            int id=rs.getInt("questionId");
+            String desc= rs.getString("questionDesc");
+            Question q = new Question(id, desc);
+            
+            
+            questionByCat.add(q);
+            
+         
+        }
+     return questionByCat;
+     }
     
 }

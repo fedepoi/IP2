@@ -56,5 +56,11 @@ public class Question {
         this.questionId=id;}
     public void setDesc(String desc){this.questionDesc=desc;}
     
+    @Override
+    public String toString(){
+    String s = this.questionId+" : "+this.questionDesc;
+    return s;    
+    }
+    
     
 }
