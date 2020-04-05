@@ -43,7 +43,7 @@ public class AlertboxController implements Initializable {
     
     @FXML
     public void goToHome(ActionEvent event) throws IOException{
-    
+    /**
          try {
            Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
@@ -52,7 +52,9 @@ public class AlertboxController implements Initializable {
            window.show();
        } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
-       }   
+       } 
+       **/           
+           ((Node)(event.getSource())).getScene().getWindow().hide();
      }
     
     

@@ -33,6 +33,7 @@ public class DBConnect {
     private ArrayList personalReport;
     private ArrayList worldReport;
     private ArrayList questionByCat;
+    private ArrayList allCat;
             
             
     
@@ -301,7 +302,7 @@ public class DBConnect {
      
      public ArrayList getQuestionByCat(int cat) throws SQLException{
      
-     
+     questionByCat=new ArrayList();
      String query="SELECT questionId, questionDesc FROM `questions` where categoryId="+cat;
      
       rs=st.executeQuery(query);
@@ -313,10 +314,34 @@ public class DBConnect {
             
             
             questionByCat.add(q);
-            
-         
         }
+     //System.out.print(questionByCat);
      return questionByCat;
      }
+     
+      public ArrayList getCategories() throws SQLException{
+     
+     allCat=new ArrayList();
+     String query="SELECT categoryId, categoryName FROM `category`";
+     
+      rs=st.executeQuery(query);
+        
+        while(rs.next()){
+            int id=rs.getInt("categoryId");
+            String desc= rs.getString("categoryName");
+            Category cat = new Category(id, desc);
+            
+            
+            allCat.add(cat);
+        }
+     //System.out.print(questionByCat);
+     return allCat;
+     }
+     
+     
+     
+     
+    
+     
     
 }

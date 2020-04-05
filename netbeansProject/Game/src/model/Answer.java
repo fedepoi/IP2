@@ -33,11 +33,10 @@ public class Answer {
     
     @Override
     public String toString(){     
-    return Integer.toString(answerId)+desc+correct;
+    return answerId+" : "+desc+" - "+correct;
     }
     
-    
-    
+   
     
     
     

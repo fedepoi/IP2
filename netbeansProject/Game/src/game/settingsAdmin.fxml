@@ -119,12 +119,12 @@
                   <Insets left="15.0" right="15.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <JFXComboBox fx:id="categoryComboBox" focusColor="#f78c7b" prefHeight="25.0" prefWidth="329.0" promptText="Select Category" unFocusColor="#d0caca">
+            <JFXComboBox fx:id="categoryComboBox" focusColor="#f78c7b" onAction="#getQuestionFromCB" prefHeight="25.0" prefWidth="329.0" promptText="Select Category" unFocusColor="#d0caca">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </JFXComboBox>
-            <JFXComboBox fx:id="questionComboBox" focusColor="#f78c7b" prefHeight="25.0" prefWidth="329.0" promptText="Select Question" unFocusColor="#d0caca">
+            <JFXComboBox fx:id="questionComboBox" focusColor="#f78c7b" onAction="#getAnswerFromCB" prefHeight="25.0" prefWidth="329.0" promptText="Select Question" unFocusColor="#d0caca">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
@@ -151,7 +151,7 @@
             </JFXTextField>
             <HBox fx:id="HBoxregister1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="deleteEditAdmin" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Delete">
+                  <Button fx:id="deleteEditAdmin" mnemonicParsing="false" onAction="#popUpTry" prefHeight="30.0" prefWidth="120.0" snapToPixel="false" styleClass="register_btn" stylesheets="@game.css" text="Delete">
                      <HBox.margin>
                         <Insets left="120.0" right="-160.0" top="20.0" />
                      </HBox.margin>

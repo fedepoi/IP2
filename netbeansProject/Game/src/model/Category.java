@@ -25,5 +25,9 @@ private String catName;
  
  
  
- 
+ @Override
+ public String toString(){
+ String s = catId+" : "+catName;
+ return s; 
+ }
 }

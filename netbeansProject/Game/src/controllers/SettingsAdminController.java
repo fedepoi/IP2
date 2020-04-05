@@ -27,6 +27,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Answer;
+import model.Category;
+import model.Question;
 import model.User;
 
 /**
@@ -88,13 +91,13 @@ public class SettingsAdminController implements Initializable {
     private Label ProfileLabel1;
 
     @FXML
-    private JFXComboBox<String> categoryComboBox;
+    private JFXComboBox<Category> categoryComboBox;
 
     @FXML
-    private JFXComboBox<String> questionComboBox;
+    private JFXComboBox<Question> questionComboBox;
 
     @FXML
-    private JFXComboBox<String> answerComboBox;
+    private JFXComboBox<Answer> answerComboBox;
 
     @FXML
     private JFXTextField editCategory;
@@ -124,31 +127,20 @@ public class SettingsAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        categoryComboBox.getItems().add("Maths");
-        categoryComboBox.getItems().add("Geography");
-        categoryComboBox.getItems().add("Computer Science"); 
+       
         
         DBConnect conn;
         try {
             conn = new DBConnect();
+            categoryComboBox.getItems().addAll(conn.getCategories());
             
-            // questionComboBox.getItems().addAll(conn.getQuestionByCat(2));
+            
+            
+          
         } catch (SQLException ex) {
             Logger.getLogger(SettingsAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     }   
     
@@ -205,7 +197,33 @@ public class SettingsAdminController implements Initializable {
     }
     
     
+    @FXML
+    public void getQuestionFromCB() throws SQLException{
+     DBConnect conn = new DBConnect();
+     questionComboBox.getItems().clear();
+     questionComboBox.getItems().addAll(conn.getQuestionByCat(categoryComboBox.getSelectionModel().getSelectedItem().getId()));
+    }
+    @FXML
+    public void getAnswerFromCB() throws SQLException{
+     DBConnect conn = new DBConnect();
+     answerComboBox.getItems().clear();
+     answerComboBox.getItems().addAll(conn.getRelatedAnswer(questionComboBox.getSelectionModel().getSelectedItem().getId()));
+    }
     
+     @FXML
+    public void popUpTry(ActionEvent event) throws IOException{
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/alertbox.fxml"));
+           Parent windowHome = loader.load();
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = new Stage();
+           window.setScene(windowHomeScene);
+           window.show();
+    
+    
+    
+    }
     
     
     
