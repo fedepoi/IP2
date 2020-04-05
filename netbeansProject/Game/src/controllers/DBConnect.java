@@ -283,13 +283,17 @@ public class DBConnect {
       
       public void updateUser(User u,String fName,String lName,String mail,String pass,int admin){
         String query = "UPDATE usertable"
-                + "SET firstname = '"+fName
-                +"' , lastname = '"+lName
-                +"' , email = '"+mail
-                +"' , password = '"
-                +pass+"' , admin = '"
-                +admin+"' where userId = '"
-                +u.getId()+"';";
+                +"SET firstname='"+fName+"',"
+                +"lastname='"+lName+"',"
+                +"email='"+mail+"',"
+                +"password='"+pass+"',"
+                +"admin='"+admin+"' WHERE userId="+u.getId();
+          
+        String query1="update usertable set firstname='federico',lastname='vivaldo',email='fviv@cal.com',password='pass1',admin=1 where userId=1";
+        
+        
+        System.out.println("thi is the updated user:->"+fName+lName+mail+pass+admin + "--"+u.getId());
+        
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {
