@@ -18,14 +18,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.User;
 
 /**
@@ -55,6 +59,12 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button ComputerImage;
+    
+    @FXML
+    private TilePane tilePane;
+    
+    @FXML
+    private Button addName;
 
     @FXML
     private Button AddCategory;
@@ -107,19 +117,20 @@ public class HomeController implements Initializable {
            FXMLLoader loader = new FXMLLoader();
            loader.setLocation(getClass().getResource("/game/alertbox.fxml"));
            Parent windowHome = loader.load();
-           Scene windowHomeScene = new Scene(windowHome);
-           //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-           Stage window = new Stage();
-           window.initModality(Modality.APPLICATION_MODAL);
-           window.setScene(windowHomeScene);
-           window.showAndWait();
+           
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+         
+         
        } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        }    
                
     }
     
-      @FXML
+    @FXML
     private void openSettingsAdmin(ActionEvent event) throws IOException{
          try {
              
@@ -199,6 +210,19 @@ public class HomeController implements Initializable {
                
     
 }
-  
+    
+     @FXML
+    private void addCategory() throws IOException, SQLException{
+        
+        Button button = new Button();
+        button.setPrefWidth(149);
+        button.setPrefHeight(143);
+        button.setText("New Category");
+        button.setStyle("-fx-font-size:15,-fx-background-image: url('maths.jpg')");
+       
+        
+         tilePane.getChildren().add(button);
+               
+    }
     
 }

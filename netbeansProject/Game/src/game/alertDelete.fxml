@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="192.0" prefWidth="425.0" styleClass="white-panel" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AlertDeleteController">
+    <stylesheets>
+        <URL value="@game.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="yesDelete" layoutX="298.0" layoutY="144.0" mnemonicParsing="false" onAction="#closeAlertDeleteBox" styleClass="register_btn" text="Yes" />
+      <Button fx:id="cancelDelete" layoutX="345.0" layoutY="144.0" mnemonicParsing="false" onAction="#closeAlertDeleteBox" styleClass="register_btn" text="Cancel" />
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="425.0" style="-fx-background-color: #333333;" text="Warning!" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="83.0" prefHeight="27.0" prefWidth="304.0" text="Do you want to delete the item?" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

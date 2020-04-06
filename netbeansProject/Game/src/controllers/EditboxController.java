@@ -56,7 +56,8 @@ public void closeEditBox (ActionEvent event) throws IOException{
     cancelButton = (Button) event.getSource();
     Stage window = (Stage) cancelButton.getScene().getWindow();
     window.close(); 
-    
+    okButton = (Button) event.getSource();
+    window.close();
     }
  
 

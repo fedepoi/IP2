@@ -43,32 +43,22 @@ public class AlertboxController implements Initializable {
     
     @FXML
     public void goToHome(ActionEvent event) throws IOException{
-    /**
-         try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
-           Scene windowHomeScene = new Scene(windowHome);
-           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-           window.setScene(windowHomeScene);
-           window.show();
-       } catch (IOException ex) {
-           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
-       } 
-       **/           
-           ((Node)(event.getSource())).getScene().getWindow().hide();
+        
+        cancelAlert = (Button) event.getSource();
+        Stage window = (Stage) cancelAlert.getScene().getWindow();
+        window.close(); 
+
      }
     
     
      @FXML
     public void goToSignIn(ActionEvent event) throws IOException{
-    
-         try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/registerSignIn.fxml"));
-           Scene windowHomeScene = new Scene(windowHome);
-           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-           window.setScene(windowHomeScene);
-           window.show();            
-       } catch (IOException ex) {
-           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
-       }   
-     }
+        
+        
+        yesAlert = (Button) event.getSource();
+        Stage window = (Stage) yesAlert.getScene().getWindow();
+        window.close(); 
+         
+}
+
 }

@@ -257,4 +257,26 @@ public class SettingsAdminController implements Initializable {
     
     }
     
+     @FXML
+    public void openAlertDelete(ActionEvent event) throws IOException{
+        
+         try {
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/alertDelete.fxml"));
+           Parent windowHome = loader.load();
+           
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+           
+           
+         
+             } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+          
+    
+    }
+    
 }
