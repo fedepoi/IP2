@@ -73,7 +73,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Rating fx:id="ratingStars" disable="true" layoutX="181.0" layoutY="40.0" prefHeight="34.0" prefWidth="176.0" rating="0.0">
+            <Rating fx:id="ratingStars" layoutX="181.0" layoutY="40.0" prefHeight="34.0" prefWidth="176.0" rating="0.0">
                <effect>
                   <DropShadow />
                </effect>

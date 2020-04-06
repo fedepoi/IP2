@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,13 +21,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Answer;
 import model.Category;
 import model.Question;
@@ -113,6 +120,24 @@ public class SettingsAdminController implements Initializable {
 
     @FXML
     private Button deleteEditAdmin;
+    
+     @FXML
+    private Button deleteCategoryButton;
+
+    @FXML
+    private Button editCategoryButton;
+    
+    @FXML
+    private Button editQuestionButton;
+
+    @FXML
+    private Button deleteQuestionButton;
+    
+    @FXML
+    private Button editAnswerButton;
+
+    @FXML
+    private Button deleteAnswerButton;
 
     @FXML
     private Button saveEditAdmin;
@@ -211,20 +236,25 @@ public class SettingsAdminController implements Initializable {
     }
     
      @FXML
-    public void popUpTry(ActionEvent event) throws IOException{
+    public void openEditBox(ActionEvent event) throws IOException{
+        
+         try {
            FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(getClass().getResource("/game/alertbox.fxml"));
+           loader.setLocation(getClass().getResource("/game/editbox.fxml"));
            Parent windowHome = loader.load();
-          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
-           Scene windowHomeScene = new Scene(windowHome);
-           Stage window = new Stage();
-           window.setScene(windowHomeScene);
-           window.show();
-    
-    
+           
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+           
+           
+         
+             } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+          
     
     }
-    
-    
     
 }
