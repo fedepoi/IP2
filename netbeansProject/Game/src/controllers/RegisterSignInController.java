@@ -188,7 +188,7 @@ public class RegisterSignInController implements Initializable {
     
     
      @FXML
-    public void register() throws SQLException
+    public void register(ActionEvent event) throws SQLException, IOException
     {
         int a;
         if (checkBoxA.isSelected()==true)
