@@ -45,43 +45,35 @@
             <DropShadow radius="8.75" width="16.0" />
          </effect>
       </HBox>
-      <Button fx:id="MathsImage" layoutX="59.0" layoutY="110.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@game.css">
-         <effect>
-            <DropShadow height="22.0" radius="10.5" width="22.0" />
-         </effect>
-      </Button>
-      <Button fx:id="GeographyImage" layoutX="237.0" layoutY="110.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="geoImage" stylesheets="@game.css">
-         <effect>
-            <DropShadow height="22.0" radius="10.5" width="22.0" />
-         </effect>
-      </Button>
-      <Button fx:id="ComputerImage" layoutX="420.0" layoutY="109.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="computerImage" stylesheets="@game.css">
-         <effect>
-            <DropShadow height="22.0" radius="10.5" width="22.0" />
-         </effect>
-      </Button>
-      <Button fx:id="AddCategory" layoutX="600.0" layoutY="110.0" mnemonicParsing="false" prefHeight="143.0" prefWidth="149.0" styleClass="addImage" stylesheets="@game.css" text="Add Category" textFill="#333333">
-         <effect>
-            <DropShadow height="22.0" radius="10.5" width="22.0" />
-         </effect>
+      <TilePane fx:id="tilePane" hgap="30.0" layoutY="52.0" prefHeight="352.0" prefWidth="800.0" vgap="30.0">
+         <children>
+            <Button fx:id="MathsImage" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@game.css">
+               <effect>
+                  <DropShadow height="22.0" radius="10.5" width="22.0" />
+               </effect>
+            </Button>
+            <Button fx:id="GeographyImage" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="geoImage" stylesheets="@game.css">
+               <effect>
+                  <DropShadow height="22.0" radius="10.5" width="22.0" />
+               </effect>
+            </Button>
+            <Button fx:id="ComputerImage" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="computerImage" stylesheets="@game.css">
+               <effect>
+                  <DropShadow height="22.0" radius="10.5" width="22.0" />
+               </effect>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="50.0" top="20.0" />
+         </padding>
+      </TilePane>
+      <Button fx:id="AddCategory" layoutX="670.0" layoutY="404.0" mnemonicParsing="false" onAction="#addCategory" prefHeight="34.0" prefWidth="117.0" styleClass="add_btn" stylesheets="@game.css" text="Add Category" textFill="#333333">
          <font>
             <Font size="14.0" />
          </font>
-      </Button>
-      <Button fx:id="mathsButton" layoutX="101.0" layoutY="263.0" mnemonicParsing="false" onAction="#openQuiz" styleClass="categoryButtons" stylesheets="@game.css" text="Maths" textFill="#333333">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="geographyButton" layoutX="261.0" layoutY="263.0" mnemonicParsing="false" onAction="#openQuiz" styleClass="categoryButtons" stylesheets="@game.css" text="Geography" textFill="#333333">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="computerScienceButton" layoutX="419.0" layoutY="263.0" mnemonicParsing="false" onAction="#openQuiz" styleClass="categoryButtons" stylesheets="@game.css" text="Computer Science" textFill="#333333">
-         <font>
-            <Font size="16.0" />
-         </font>
+         <effect>
+            <DropShadow height="16.0" radius="7.5" width="16.0" />
+         </effect>
       </Button>
    </children>
 </AnchorPane>

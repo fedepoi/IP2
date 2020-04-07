@@ -131,7 +131,8 @@ public class QuizController implements Initializable {
     private Answer answ;
     private int result=0;
     private Date date;
-    String strDate;
+    private String strDate;
+    private int rating;
    
    private static final Integer STARTTIMEAnswer= 3; 
    private IntegerProperty timeSecondsAnswer = new SimpleIntegerProperty(STARTTIMEAnswer);
@@ -417,7 +418,7 @@ public class QuizController implements Initializable {
            window.show();
            
            DBConnect conn = new DBConnect();
-           conn.addScore(result,strDate, timeSeconds.intValue());
+           conn.addScore(result,strDate, timeSeconds.intValue(),rating);
            
            System.out.println(getCat());
            System.out.println(user.getId());
@@ -435,18 +436,25 @@ public class QuizController implements Initializable {
 }
     public int checkRating(){
     if(30-timeSeconds.intValue()>=0 && 30-timeSeconds.intValue()<=5){
-    return 5;
+        rating=5;
+    return rating;
     }
     else if(30-timeSeconds.intValue()>=6 && 30-timeSeconds.intValue()<=11){
-    return 4;
+        rating=4;
+    return rating;
     } 
     else if(30-timeSeconds.intValue()>=12 && 30-timeSeconds.intValue()<=17){
-    return 3;
+        rating=3;
+    return rating;
     }
     if(30-timeSeconds.intValue()>=18 && 30-timeSeconds.intValue()<=23){
-    return 2;
+        rating=2;
+    return rating;
     }
-    else return 1;    
+    
+    else
+        rating=1;
+        return rating;    
     
     }
     

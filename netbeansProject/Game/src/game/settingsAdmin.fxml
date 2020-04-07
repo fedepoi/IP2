@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AdminSettingsPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsAdminController">
+<AnchorPane id="AnchorPane" fx:id="AdminSettingsPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsAdminController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -124,12 +124,12 @@
                   <Insets left="20.0" right="150.0" top="40.0" />
                </VBox.margin>
             </JFXComboBox>
-            <Button fx:id="deleteCategoryButton" mnemonicParsing="false" onAction="#openAlertDelete" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="deleteImage">
+            <Button fx:id="deleteCategoryButton" mnemonicParsing="false" onAction="#openAlertDeleteCat" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="deleteImage">
                <VBox.margin>
                   <Insets left="310.0" top="-25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="editCategoryButton" mnemonicParsing="false" onAction="#openEditBox" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="editImage" textFill="#ebe4e4">
+            <Button fx:id="editCategoryButton" mnemonicParsing="false" onAction="#openEditBoxCat" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: transparent;" styleClass="editImage" textFill="#ebe4e4">
                <VBox.margin>
                   <Insets left="260.0" top="-25.0" />
                </VBox.margin>
@@ -139,12 +139,12 @@
                   <Insets left="20.0" right="150.0" top="40.0" />
                </VBox.margin>
             </JFXComboBox>
-            <Button fx:id="editQuestionButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="editImage">
+            <Button fx:id="editQuestionButton" mnemonicParsing="false" onAction="#openEditBoxQues" prefHeight="25.0" prefWidth="25.0" styleClass="editImage">
                <VBox.margin>
                   <Insets left="260.0" top="-25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="deleteQuestionButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="deleteImage">
+            <Button fx:id="deleteQuestionButton" mnemonicParsing="false" onAction="#openAlertDeleteQues" prefHeight="25.0" prefWidth="25.0" styleClass="deleteImage">
                <VBox.margin>
                   <Insets left="310.0" top="-25.0" />
                </VBox.margin>
@@ -154,12 +154,12 @@
                   <Insets left="20.0" right="150.0" top="40.0" />
                </VBox.margin>
             </JFXComboBox>
-            <Button fx:id="editAnswerButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="editImage">
+            <Button fx:id="editAnswerButton" mnemonicParsing="false" onAction="#openEditBoxAnsw" prefHeight="25.0" prefWidth="25.0" styleClass="editImage">
                <VBox.margin>
                   <Insets left="260.0" top="-25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="deleteAnswerButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="deleteImage">
+            <Button fx:id="deleteAnswerButton" mnemonicParsing="false" onAction="#openAlertDeleteAnsw" prefHeight="25.0" prefWidth="25.0" styleClass="deleteImage">
                <VBox.margin>
                   <Insets left="310.0" top="-25.0" />
                </VBox.margin>

@@ -180,8 +180,8 @@ public class DBConnect {
      
      }
      
-     public void addScore(int score,String date,int sec){
-      String query = "insert into scores (score, scoreDate, seconds) values ('"+ score +"','"+ date +"','"+sec+"')";
+     public void addScore(int score,String date,int sec,int rat){
+      String query = "insert into scores (score, scoreDate, seconds, rating) values ('"+ score +"','"+ date +"','"+sec+"','"+rat+"')";
         try {
             st.executeUpdate(query);
      } catch (SQLException ex) {
@@ -285,7 +285,7 @@ public class DBConnect {
                 +"password='"+pass+"',"
                 +"admin='"+admin+"' WHERE userId="+u.getId();
           
-        String query1="update usertable set firstname='federico',lastname='vivaldo',email='fviv@cal.com',password='pass1',admin=1 where userId=1";
+        String query1="update usertable set firstname='federico',lastname='vivaldo',email='fviv@cal.com',password='pass1',admin=1 where userId=";
         
         
         System.out.println("thi is the updated user:->"+fName+lName+mail+pass+admin + "--"+u.getId());
@@ -337,6 +337,60 @@ public class DBConnect {
      //System.out.print(questionByCat);
      return allCat;
      }
+      
+      public void updateCat(String catName,int id){
+           String query = "UPDATE category Set categoryName='"+catName+"' where categoryId="+id;
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+      }
+      
+      public void updateQues(String quesDes,int id){
+           String query = "UPDATE questions Set questionDesc='"+quesDes+"' where questionId="+id;
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+      }
+      
+      public void updateAnsw(String answDes,int id){
+           String query = "UPDATE answers Set answerdesc='"+answDes+"' where answerId="+id;
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+      }
+      
+      public void deleteCat(int catId){
+       String query = "DELETE FROM category where categoryId="+catId;
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+      }
+      
+      public void deleteQues(int quesId){
+       String query = "DELETE FROM questions where questionId="+quesId;
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+      }
+      
+      public void deleteAnsw(int answId){
+       String query = "DELETE FROM answers where answerId="+answId;
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+      }
      
      
      

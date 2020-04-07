@@ -235,8 +235,8 @@ public class SettingsAdminController implements Initializable {
      answerComboBox.getItems().addAll(conn.getRelatedAnswer(questionComboBox.getSelectionModel().getSelectedItem().getId()));
     }
     
-     @FXML
-    public void openEditBox(ActionEvent event) throws IOException{
+    @FXML
+    public void openEditBoxCat(ActionEvent event) throws IOException{
         
          try {
            FXMLLoader loader = new FXMLLoader();
@@ -247,9 +247,9 @@ public class SettingsAdminController implements Initializable {
            dialog.getDialogPane().setContent(windowHome);
            //dialog.initStyle(StageStyle.TRANSPARENT);
            dialog.show();
-           
-           
-         
+           EditboxController editCon = loader.getController();
+           editCon.setCat(categoryComboBox.getSelectionModel().getSelectedItem());
+           editCon.setActionCat();
              } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        } 
@@ -257,8 +257,51 @@ public class SettingsAdminController implements Initializable {
     
     }
     
+    @FXML
+    public void openEditBoxQues(ActionEvent event) throws IOException{
+        
+         try {
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/editbox.fxml"));
+           Parent windowHome = loader.load();
+           
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+           EditboxController editCon = loader.getController();
+           editCon.setQues(questionComboBox.getSelectionModel().getSelectedItem());
+           editCon.setActionQues();
+             } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+    }
+    
+    @FXML
+    public void openEditBoxAnsw(ActionEvent event) throws IOException{
+        
+         try {
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/editbox.fxml"));
+           Parent windowHome = loader.load();
+           
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+           EditboxController editCon = loader.getController();
+           editCon.setAnsw(answerComboBox.getSelectionModel().getSelectedItem());
+           editCon.setActionAnsw();
+             } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+          
+    
+    }
+    
+    
      @FXML
-    public void openAlertDelete(ActionEvent event) throws IOException{
+    public void openAlertDeleteCat(ActionEvent event) throws IOException{
         
          try {
            FXMLLoader loader = new FXMLLoader();
@@ -270,8 +313,55 @@ public class SettingsAdminController implements Initializable {
            //dialog.initStyle(StageStyle.TRANSPARENT);
            dialog.show();
            
+           AlertDeleteController aDCon=loader.getController();
+           aDCon.setCat(categoryComboBox.getSelectionModel().getSelectedItem());
+           aDCon.setOnActionCat();
+             } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+          
+    
+    }
+    
+    @FXML
+    public void openAlertDeleteQues(ActionEvent event) throws IOException{
+        
+         try {
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/alertDelete.fxml"));
+           Parent windowHome = loader.load();
            
-         
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+           
+           AlertDeleteController aDCon=loader.getController();
+           aDCon.setQues(questionComboBox.getSelectionModel().getSelectedItem());
+           aDCon.setOnActionQues();
+             } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+          
+    
+    }
+    
+    @FXML
+    public void openAlertDeleteAnsw(ActionEvent event) throws IOException{
+        
+         try {
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/alertDelete.fxml"));
+           Parent windowHome = loader.load();
+           
+           Dialog dialog = new Dialog();
+           dialog.getDialogPane().setContent(windowHome);
+           //dialog.initStyle(StageStyle.TRANSPARENT);
+           dialog.show();
+           
+           AlertDeleteController aDCon=loader.getController();
+           aDCon.setAnsw(answerComboBox.getSelectionModel().getSelectedItem());
+           aDCon.setOnActionAnsw();
              } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        } 
@@ -280,3 +370,11 @@ public class SettingsAdminController implements Initializable {
     }
     
 }
+
+    
+
+
+    
+
+
+
