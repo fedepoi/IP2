@@ -25,11 +25,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Category;
 import model.User;
 
 /**
@@ -38,6 +40,9 @@ import model.User;
  * @author VT
  */
 public class HomeController implements Initializable {
+    
+    @FXML
+    private AnchorPane anchorHome;
 
     @FXML
     private HBox MenuBar;
@@ -65,10 +70,24 @@ public class HomeController implements Initializable {
     
     @FXML
     private Button addName;
-
+    
     @FXML
     private Button AddCategory;
+
+    @FXML
+    private Button AddQuestion;
+
+    @FXML
+    private JFXComboBox<Category> selectCategory;
+
+    @FXML
+    private Button playButton;
+
+    @FXML
+    private Button imageButton;
+    
     private User user;
+    
     public void setUser(User u){user=u;};
     
   
@@ -77,7 +96,12 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        AnchorPane.setTopAnchor(MenuBar,0.0);
+        AnchorPane.setLeftAnchor(MenuBar,0.0);
+        AnchorPane.setRightAnchor(MenuBar,0.0);
+       
     }  
+    
     
     
   @FXML
@@ -210,6 +234,49 @@ public class HomeController implements Initializable {
                
     
 }
+    @FXML
+    private void openAddCategory(ActionEvent event) throws IOException{
+         try {
+             
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/addCategory.fxml"));
+           Parent windowHome = loader.load();           
+           //Parent windowHome = FXMLLoader.load(getClass().getResource("/game/settingsAdmin.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+           AddCategoryController adminCon = loader.getController();
+           adminCon.setUser(user);
+          
+           
+       } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+      
+    }
+    
+    @FXML
+    private void openAddQuestion(ActionEvent event) throws IOException{
+         try {
+             
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/addQuestion.fxml"));
+           Parent windowHome = loader.load();           
+           //Parent windowHome = FXMLLoader.load(getClass().getResource("/game/settingsAdmin.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+           AddQuestionController adminCon = loader.getController();
+           adminCon.setUser(user);
+          
+           
+       } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       } 
+      
+    }
     
      @FXML
     private void addCategory() throws IOException, SQLException{

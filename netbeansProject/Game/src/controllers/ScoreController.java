@@ -63,7 +63,7 @@ public class ScoreController implements Initializable {
     private Label labelRating;
 
     @FXML
-    private HBox MenuBarQuiz;
+    private HBox MenuBar;
 
     @FXML
     private Button SettingsMenu;
@@ -92,6 +92,9 @@ public class ScoreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        AnchorPane.setTopAnchor(MenuBar,0.0);
+        AnchorPane.setLeftAnchor(MenuBar,0.0);
+        AnchorPane.setRightAnchor(MenuBar,0.0);
         /**
            ratingStars.ratingProperty().addListener(new ChangeListener<Number>() {
             @Override

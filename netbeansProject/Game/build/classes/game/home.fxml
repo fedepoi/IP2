@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane id="AnchorPane" fx:id="anchorHome" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -45,34 +45,25 @@
             <DropShadow radius="8.75" width="16.0" />
          </effect>
       </HBox>
-      <TilePane fx:id="tilePane" hgap="30.0" layoutY="52.0" prefHeight="352.0" prefWidth="800.0" vgap="30.0">
-         <children>
-            <Button fx:id="MathsImage" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="mathsImage" stylesheets="@game.css">
-               <effect>
-                  <DropShadow height="22.0" radius="10.5" width="22.0" />
-               </effect>
-            </Button>
-            <Button fx:id="GeographyImage" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="geoImage" stylesheets="@game.css">
-               <effect>
-                  <DropShadow height="22.0" radius="10.5" width="22.0" />
-               </effect>
-            </Button>
-            <Button fx:id="ComputerImage" mnemonicParsing="false" onAction="#openQuiz" prefHeight="143.0" prefWidth="149.0" styleClass="computerImage" stylesheets="@game.css">
-               <effect>
-                  <DropShadow height="22.0" radius="10.5" width="22.0" />
-               </effect>
-            </Button>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="50.0" top="20.0" />
-         </padding>
-      </TilePane>
-      <Button fx:id="AddCategory" layoutX="670.0" layoutY="404.0" mnemonicParsing="false" onAction="#addCategory" prefHeight="34.0" prefWidth="117.0" styleClass="add_btn" stylesheets="@game.css" text="Add Category" textFill="#333333">
+      <Button fx:id="AddCategory" layoutX="594.0" layoutY="393.0" mnemonicParsing="false" onAction="#openAddCategory" prefHeight="23.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Add Category" textFill="#333333">
          <font>
             <Font size="14.0" />
          </font>
+      </Button>
+      <Button fx:id="AddQuestion" layoutX="466.0" layoutY="393.0" mnemonicParsing="false" onAction="#openAddQuestion" prefHeight="30.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Add Question" textFill="#333333">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <JFXComboBox fx:id="selectCategory" focusColor="#f78c7b" layoutX="409.0" layoutY="217.0" prefHeight="34.0" prefWidth="233.0" promptText="Select Category" unFocusColor="#f78c7b" />
+      <Button fx:id="playButton" layoutX="653.0" layoutY="222.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="58.0" styleClass="register_btn" stylesheets="@game.css" text="Play" textFill="#333333">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="imageButton" layoutX="113.0" layoutY="130.0" mnemonicParsing="false" prefHeight="219.0" prefWidth="254.0" styleClass="addCatImage">
          <effect>
-            <DropShadow height="16.0" radius="7.5" width="16.0" />
+            <DropShadow />
          </effect>
       </Button>
    </children>

@@ -5,10 +5,10 @@
  */
 package controllers;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,11 +21,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.Category;
 import model.User;
 
 /**
@@ -33,11 +32,8 @@ import model.User;
  *
  * @author HP
  */
-public class SettingsUserController implements Initializable {
+public class AddQuestionController implements Initializable {
     
-    @FXML
-    private AnchorPane settingsUserPane;
-
     @FXML
     private HBox MenuBar;
 
@@ -51,37 +47,44 @@ public class SettingsUserController implements Initializable {
     private Button LogOut;
 
     @FXML
-    private VBox RegisterBoxSetUser;
+    private JFXComboBox<Category> selectCategory;
 
     @FXML
-    private Label ProfileLabel;
+    private JFXTextField addQuestionField;
 
     @FXML
-    private JFXTextField FirstNameTextSetUser;
+    private JFXTextField addAnswerField1;
 
     @FXML
-    private JFXTextField LastNameTextSetUser;
+    private JFXTextField addAnswerField2;
 
     @FXML
-    private JFXTextField EmailTextSetUser;
+    private JFXTextField addAnswerField3;
 
     @FXML
-    private JFXTextField PasswordTextSetUser;
+    private JFXTextField addAnswerField4;
 
     @FXML
-    private HBox HBoxregister;
+    private CheckBox checkBox1;
 
     @FXML
-    private CheckBox becomeAdminCheckBox;
+    private CheckBox checkBox3;
 
     @FXML
-    private Button SaveProfileButtonUser;
-    
+    private CheckBox checkBox2;
+
+    @FXML
+    private CheckBox checkBox4;
+
+    @FXML
+    private Button saveButton;
+
     @FXML
     private Button goToHome;
     
     private User user;
     public void setUser(User u){user=u;};
+
 
     /**
      * Initializes the controller class.
@@ -89,33 +92,20 @@ public class SettingsUserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
         AnchorPane.setTopAnchor(MenuBar,0.0);
         AnchorPane.setLeftAnchor(MenuBar,0.0);
         AnchorPane.setRightAnchor(MenuBar,0.0);
-    }  
+    }    
     
     
-    @FXML
-    private void Logout(ActionEvent event){
-         try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/registerSignIn.fxml"));
-           Scene windowHomeScene = new Scene(windowHome);
-           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-           window.setScene(windowHomeScene);
-           window.show();
-       } catch (IOException ex) {
-           Logger.getLogger(controllers.SettingsUserController.class.getName()).log(Level.SEVERE, null, ex);
-       }    
-               
-    }
-    
-      @FXML
+     @FXML
     public void goToHome(ActionEvent event) throws IOException{
     
          try {
            FXMLLoader loader = new FXMLLoader();
            loader.setLocation(getClass().getResource("/game/home.fxml"));
-           Parent windowHome = loader.load();    
+           Parent windowHome = loader.load();
           // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -124,26 +114,8 @@ public class SettingsUserController implements Initializable {
            HomeController h = loader.getController();
            h.setUser(user);
        } catch (IOException ex) {
-           Logger.getLogger(controllers.SettingsUserController.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        }   
      }
-    
-    @FXML
-    public void updateDetails(ActionEvent event) throws SQLException, IOException{
-         int a;
-        if (becomeAdminCheckBox.isSelected()==true)
-        {
-          a=1;
-        } else a=0;
-    System.out.print(user);
-    DBConnect conn = new DBConnect();
-    conn.updateUser(user, FirstNameTextSetUser.getText(), LastNameTextSetUser.getText(), EmailTextSetUser.getText(), PasswordTextSetUser.getText(),a);
-    user.setName(FirstNameTextSetUser.getText());
-    user.setLName(LastNameTextSetUser.getText());
-    user.setMail(EmailTextSetUser.getText());
-    user.setPass(PasswordTextSetUser.getText());
-    user.setAdmin(becomeAdminCheckBox.isSelected());   
-    goToHome(event);
-    }
     
 }

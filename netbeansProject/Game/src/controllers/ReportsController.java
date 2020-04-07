@@ -24,6 +24,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.User;
 
@@ -48,6 +50,9 @@ public class ReportsController implements Initializable {
 
     @FXML
     private Label ProfileLabel1;
+    
+    @FXML
+    private HBox MenuBar;
      @FXML
     private TextArea personalReportArea;
     @FXML
@@ -70,6 +75,11 @@ public class ReportsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        AnchorPane.setTopAnchor(MenuBar,0.0);
+        AnchorPane.setLeftAnchor(MenuBar,0.0);
+        AnchorPane.setRightAnchor(MenuBar,0.0);
+        
+        
         selectCategoryYou.getItems().add("All");
         selectCategoryYou.getItems().add("maths");
         selectCategoryYou.getItems().add("Geography");

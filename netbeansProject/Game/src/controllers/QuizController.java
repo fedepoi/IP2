@@ -61,7 +61,7 @@ public class QuizController implements Initializable {
     private AnchorPane AnchorQuiz;
 
     @FXML
-    private HBox MenuBarQuiz;
+    private HBox MenuBar;
 
     @FXML
     private Button SettingsMenu;
@@ -157,6 +157,10 @@ public class QuizController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        AnchorPane.setTopAnchor(MenuBar,0.0);
+        AnchorPane.setLeftAnchor(MenuBar,0.0);
+        AnchorPane.setRightAnchor(MenuBar,0.0);
         /**
         timerLabel.textProperty().bind(timeSeconds.asString());
         timerLabel.setTextFill(Color.RED);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorHome" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.AddCategoryController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
    <children>
-      <HBox fx:id="MenuBar" layoutX="-1.0" prefHeight="50.0" prefWidth="802.0" style="-fx-background-color: #333333; -fx-border-color: #333333;">
+      <HBox fx:id="MenuBar" prefHeight="50.0" prefWidth="802.0" style="-fx-background-color: #333333; -fx-border-color: #333333;">
          <children>
             <Button fx:id="SettingsMenu" mnemonicParsing="false" onAction="#checkUser" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Settings">
                <HBox.margin>
@@ -45,26 +45,22 @@
             <DropShadow radius="8.75" width="16.0" />
          </effect>
       </HBox>
-      <Button fx:id="AddCategory" layoutX="594.0" layoutY="393.0" mnemonicParsing="false" onAction="#openAddCategory" prefHeight="23.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Add Category" textFill="#333333">
+      <JFXTextField fx:id="addCategoryField" focusColor="#f78c7b" layoutX="412.0" layoutY="208.0" prefHeight="35.0" prefWidth="266.0" promptText="Add the new Category" unFocusColor="#f78c7b" />
+      <Button fx:id="saveButton" layoutX="604.0" layoutY="403.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Save" textFill="#333333">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="AddQuestion" layoutX="466.0" layoutY="393.0" mnemonicParsing="false" onAction="#openAddQuestion" prefHeight="30.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Add Question" textFill="#333333">
+      <Button fx:id="AddCategory" layoutX="476.0" layoutY="403.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Add Category" textFill="#333333">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <JFXComboBox fx:id="selectCategory" focusColor="#f78c7b" layoutX="409.0" layoutY="217.0" prefHeight="34.0" prefWidth="233.0" promptText="Select Category" unFocusColor="#f78c7b" />
-      <Button fx:id="playButton" layoutX="653.0" layoutY="222.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="58.0" styleClass="register_btn" stylesheets="@game.css" text="Play" textFill="#333333">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="imageButton" layoutX="113.0" layoutY="130.0" mnemonicParsing="false" prefHeight="219.0" prefWidth="254.0" styleClass="addCatImage">
+      <Button fx:id="imageAddCatButton" layoutX="121.0" layoutY="123.0" mnemonicParsing="false" prefHeight="219.0" prefWidth="254.0" styleClass="addCatImage">
          <effect>
             <DropShadow />
          </effect>
       </Button>
+      <Button fx:id="goToHome" layoutX="610.0" layoutY="73.0" mnemonicParsing="false" onAction="#goToHome" styleClass="categoryButtons" stylesheets="@game.css" text="Go to Home Page" />
    </children>
 </AnchorPane>

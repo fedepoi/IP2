@@ -152,7 +152,9 @@ public class SettingsAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       
+        AnchorPane.setTopAnchor(MenuBar,0.0);
+        AnchorPane.setLeftAnchor(MenuBar,0.0);
+        AnchorPane.setRightAnchor(MenuBar,0.0);
         
         DBConnect conn;
         try {

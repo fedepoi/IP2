@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane fx:id="scorePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ScoreController">
+<AnchorPane fx:id="scorePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ScoreController">
    <children>
       <AnchorPane layoutX="139.0" layoutY="61.0" prefHeight="364.0" prefWidth="536.0" style="-fx-background-color: #F78C7B; -fx-background-radius: 30px; -fx-border-color: #333333; -fx-border-radius: 30px;">
          <children>
@@ -84,7 +84,7 @@
          </effect>
       </AnchorPane>
       <Label fx:id="labelRating" layoutX="348.0" layoutY="13.0" textFill="TRANSPARENT" />
-      <HBox fx:id="MenuBarQuiz" layoutX="-1.0" layoutY="-3.0" prefHeight="50.0" prefWidth="803.0" style="-fx-background-color: #333333; -fx-border-color: #333333;">
+      <HBox fx:id="MenuBar" layoutX="-1.0" layoutY="-3.0" prefHeight="50.0" prefWidth="803.0" style="-fx-background-color: #333333; -fx-border-color: #333333;">
          <children>
             <Button fx:id="SettingsMenu" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Settings">
                <HBox.margin>
