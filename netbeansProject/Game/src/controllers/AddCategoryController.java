@@ -8,6 +8,7 @@ package controllers;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +71,7 @@ public class AddCategoryController implements Initializable {
         AnchorPane.setTopAnchor(MenuBar,0.0);
         AnchorPane.setLeftAnchor(MenuBar,0.0);
         AnchorPane.setRightAnchor(MenuBar,0.0);
+        
     }    
     
      @FXML
@@ -90,5 +92,12 @@ public class AddCategoryController implements Initializable {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        }   
 }
+    
+    public void addCat(ActionEvent event) throws SQLException, IOException{
+    DBConnect conn = new DBConnect();
+    conn.addCat(addCategoryField.getText());
+    goToHome(event);
+    
+    }
     
 }

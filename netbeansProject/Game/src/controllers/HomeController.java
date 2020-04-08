@@ -95,10 +95,16 @@ public class HomeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            DBConnect conn = new DBConnect();
+             selectCategory.getItems().addAll(conn.getCategories());
+        } catch (SQLException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         AnchorPane.setTopAnchor(MenuBar,0.0);
         AnchorPane.setLeftAnchor(MenuBar,0.0);
         AnchorPane.setRightAnchor(MenuBar,0.0);
+       
        
     }  
     
@@ -119,12 +125,13 @@ public class HomeController implements Initializable {
            
            QuizController c = loader.getController();
            c.setUser(user);
-           
+           /**
            if (event.getSource()==MathsImage){
            c.setCat(1);}
            else if (event.getSource()==GeographyImage){c.setCat(2);}
            else if (event.getSource()==ComputerImage){c.setCat(3);}
-           
+           */
+           c.setCat(selectCategory.getSelectionModel().getSelectedItem().getId());
        
          } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -145,7 +152,10 @@ public class HomeController implements Initializable {
            Dialog dialog = new Dialog();
            dialog.getDialogPane().setContent(windowHome);
            //dialog.initStyle(StageStyle.TRANSPARENT);
-           dialog.show();
+           dialog.showAndWait();
+           
+         
+        
          
          
        } catch (IOException ex) {
@@ -246,6 +256,7 @@ public class HomeController implements Initializable {
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
            window.show();
+           
            AddCategoryController adminCon = loader.getController();
            adminCon.setUser(user);
           
@@ -270,26 +281,36 @@ public class HomeController implements Initializable {
            window.show();
            AddQuestionController adminCon = loader.getController();
            adminCon.setUser(user);
-          
+           
            
        } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        } 
       
     }
-    
-     @FXML
-    private void addCategory() throws IOException, SQLException{
-        
-        Button button = new Button();
-        button.setPrefWidth(149);
-        button.setPrefHeight(143);
-        button.setText("New Category");
-        button.setStyle("-fx-font-size:15,-fx-background-image: url('maths.jpg')");
+    /**
+     * set the bg image of the image button on combobox selection
+     */    
+    @FXML
+    public void setBgImgButton(){
+    if(selectCategory.getSelectionModel().getSelectedItem().getId()==1){ 
+        imageButton.getStyleClass().clear();
+        imageButton.getStyleClass().add("mathsImage");
+    }
+    else if(selectCategory.getSelectionModel().getSelectedItem().getId()==2){
+        imageButton.getStyleClass().clear();
+        imageButton.getStyleClass().add("geoImage");
        
+    }
+    else if(selectCategory.getSelectionModel().getSelectedItem().getId()==3){
+        imageButton.getStyleClass().clear();
+        imageButton.getStyleClass().add("computerImage");
+      }
+    else {
+        imageButton.getStyleClass().clear();
+        imageButton.getStyleClass().add("addCatImage");}
         
-         tilePane.getChildren().add(button);
-               
+    
     }
     
 }

@@ -393,7 +393,42 @@ public class DBConnect {
         }  
       }
      
+     public void addCat(String newCat){
+     String query = "insert into category (categoryName) values ('"+newCat+"')";
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
      
+     }
+     
+      public int addQues(String newQues,int cat) throws SQLException{
+          
+          
+     String query = "insert into questions (questionDesc,categoryId) values ('"+newQues+"','"+cat+"')";
+     int lastId;
+      
+    st.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
+    rs=st.getGeneratedKeys();
+    //lastId=rs.getInt("questionId");
+     if(rs != null && rs.next()){
+                System.out.println("Generated questionId is:"+rs.getInt(1));
+                
+            }
+        lastId=rs.getInt(1);
+     return lastId;
+     }
+      
+      public void addAnsw(String newAnsw,int ques,int correct){
+     String query = "insert into answers (answerdesc,questionId,correct) values ('"+newAnsw+"','"+ques+"','"+correct+"')";
+        try {
+            st.executeUpdate(query);
+     } catch (SQLException ex) {
+           System.out.println(  "error:\n"+ex);
+        }  
+     
+     }
      
      
     

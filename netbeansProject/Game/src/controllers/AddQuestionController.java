@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,11 +92,17 @@ public class AddQuestionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
+        try {
+            // TODO
+            DBConnect conn = new DBConnect();
+            selectCategory.getItems().addAll(conn.getCategories());
+        } catch (SQLException ex) {
+            Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         AnchorPane.setTopAnchor(MenuBar,0.0);
         AnchorPane.setLeftAnchor(MenuBar,0.0);
         AnchorPane.setRightAnchor(MenuBar,0.0);
+        
     }    
     
     
@@ -117,5 +124,24 @@ public class AddQuestionController implements Initializable {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
        }   
      }
+    
+    @FXML
+    public void addQuesAndAnsw(ActionEvent event) throws SQLException, IOException{
+        int check1 = checkBox1.isSelected() ? 1 : 0;
+        int check2 = checkBox2.isSelected() ? 1 : 0;
+        int check3 = checkBox3.isSelected() ? 1 : 0;
+        int check4 = checkBox4.isSelected() ? 1 : 0;
+        
+        int lastId;
+    DBConnect conn = new DBConnect();
+    lastId=conn.addQues(addQuestionField.getText(), selectCategory.getSelectionModel().getSelectedItem().getId());
+    System.out.print(lastId);
+    conn.addAnsw(addAnswerField1.getText(), lastId, check1);
+    conn.addAnsw(addAnswerField2.getText(), lastId, check2);
+    conn.addAnsw(addAnswerField3.getText(), lastId, check3);
+    conn.addAnsw(addAnswerField4.getText(), lastId, check4);
+    
+        goToHome(event);
+    }
     
 }

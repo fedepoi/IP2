@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorHome" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane id="AnchorPane" fx:id="anchorHome" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
@@ -55,8 +55,8 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <JFXComboBox fx:id="selectCategory" focusColor="#f78c7b" layoutX="409.0" layoutY="217.0" prefHeight="34.0" prefWidth="233.0" promptText="Select Category" unFocusColor="#f78c7b" />
-      <Button fx:id="playButton" layoutX="653.0" layoutY="222.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="58.0" styleClass="register_btn" stylesheets="@game.css" text="Play" textFill="#333333">
+      <JFXComboBox fx:id="selectCategory" focusColor="#f78c7b" layoutX="409.0" layoutY="217.0" onAction="#setBgImgButton" prefHeight="34.0" prefWidth="233.0" promptText="Select Category" unFocusColor="#f78c7b" />
+      <Button fx:id="playButton" layoutX="653.0" layoutY="222.0" mnemonicParsing="false" onAction="#openQuiz" prefHeight="14.0" prefWidth="58.0" styleClass="register_btn" stylesheets="@game.css" text="Play" textFill="#333333">
          <font>
             <Font size="14.0" />
          </font>

@@ -161,28 +161,6 @@ public class QuizController implements Initializable {
         AnchorPane.setTopAnchor(MenuBar,0.0);
         AnchorPane.setLeftAnchor(MenuBar,0.0);
         AnchorPane.setRightAnchor(MenuBar,0.0);
-        /**
-        timerLabel.textProperty().bind(timeSeconds.asString());
-        timerLabel.setTextFill(Color.RED);
-        timerLabel.setStyle("-fx-font-size: 14;");
-        timer.setOnAction(new EventHandler<ActionEvent>(){
-            
-          @Override
-          public void handle(ActionEvent event) {
-        
-                if (timeline != null) {
-                    timeline.stop();
-                }
-                timeSeconds.set(STARTTIME);
-                timeline = new Timeline();
-                timeline.getKeyFrames().add(
-                        new KeyFrame(Duration.seconds(STARTTIME+1),
-                        new KeyValue(timeSeconds, 0)));
-                timeline.playFromStart();
-          
-    }    
-   });
-   */
     }
    
         
@@ -192,7 +170,12 @@ public class QuizController implements Initializable {
     public void goToHome(ActionEvent event) throws IOException{
     
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+           FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/home.fxml"));
+           Parent windowHome = loader.load();
+           HomeController hcon = loader.getController();
+           hcon.setUser(user);
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);
@@ -210,14 +193,16 @@ public class QuizController implements Initializable {
            DBConnect connection=new DBConnect();
            Question s=connection.getRandomQuestion(getCat());
            //System.out.println(getCat());
-           System.out.println(s.toString());
+           System.out.println(s.getId()+"this is the id \n");
            textAreaQ.setText(s.getDesc());
-           connection.getRelatedAnswer(s.getId());
+          // connection.getRelatedAnswer(s.getId());
            //ques = new Question(getCat(), s.getDesc(),connection.getRelatedAnswer(s.getId()));
            
            s.setAnswers(connection.getRelatedAnswer(s.getId()));
+          
            this.ques=s;
-           System.out.println("----------"+s.getAnswers().toString());
+           System.out.print(ques+"\n");
+           System.out.println("----------"+s.getAnswers().toString()+"\n");
         
            //answer1.setText(s.getAnswers().get(0).getDesc());
            answer1.setText(s.getAnswers().get(0).getDesc());

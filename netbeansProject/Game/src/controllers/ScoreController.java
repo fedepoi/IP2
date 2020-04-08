@@ -110,7 +110,7 @@ public class ScoreController implements Initializable {
     public void goHome(ActionEvent event) throws IOException{
     
         try {
-            FXMLLoader loader = new FXMLLoader();
+             FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/home.fxml"));
              Parent windowHome = loader.load();
              

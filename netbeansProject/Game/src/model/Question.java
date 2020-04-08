@@ -58,7 +58,7 @@ public class Question {
     
     @Override
     public String toString(){
-    String s = this.questionId+" : "+this.questionDesc;
+    String s = this.questionId+" : "+this.questionDesc+"--answ->"+answers;
     return s;    
     }
     

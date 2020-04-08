@@ -424,7 +424,7 @@ ALTER TABLE `questions`
 --
 ALTER TABLE `userquiz`
   ADD CONSTRAINT `userquiz_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `usertable` (`userId`),
-  ADD CONSTRAINT `userquiz_ibfk_2` FOREIGN KEY (`categoryId`) REFERENCES `category` (`categoryId`),
+  ADD CONSTRAINT `userquiz_ibfk_2` FOREIGN KEY (`categoryId`) REFERENCES `category` (`categoryId`) ON DELETE CASCADE ,
   ADD CONSTRAINT `userquiz_ibfk_3` FOREIGN KEY (`scoreId`) REFERENCES `scores` (`scoreId`);
 COMMIT;
 

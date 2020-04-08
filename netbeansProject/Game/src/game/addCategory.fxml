@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.AddCategoryController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddCategoryController">
     <stylesheets>
         <URL value="@game.css" />
     </stylesheets>
    <children>
       <HBox fx:id="MenuBar" prefHeight="50.0" prefWidth="802.0" style="-fx-background-color: #333333; -fx-border-color: #333333;">
          <children>
-            <Button fx:id="SettingsMenu" mnemonicParsing="false" onAction="#checkUser" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Settings">
+            <Button fx:id="SettingsMenu" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Settings">
                <HBox.margin>
                   <Insets left="480.0" top="5.0" />
                </HBox.margin>
@@ -24,7 +24,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="ReportsMenu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openReports" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Reports">
+            <Button fx:id="ReportsMenu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Reports">
                <font>
                   <Font size="14.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="LogOut" layoutX="627.0" layoutY="15.0" mnemonicParsing="false" onAction="#Logout" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Logout">
+            <Button fx:id="LogOut" layoutX="627.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="107.0" styleClass="ReportsMenu" stylesheets="@game.css" text="Logout">
                <font>
                   <Font size="14.0" />
                </font>
@@ -46,7 +46,7 @@
          </effect>
       </HBox>
       <JFXTextField fx:id="addCategoryField" focusColor="#f78c7b" layoutX="412.0" layoutY="208.0" prefHeight="35.0" prefWidth="266.0" promptText="Add the new Category" unFocusColor="#f78c7b" />
-      <Button fx:id="saveButton" layoutX="604.0" layoutY="403.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Save" textFill="#333333">
+      <Button fx:id="saveButton" layoutX="604.0" layoutY="403.0" mnemonicParsing="false" onAction="#addCat" prefHeight="23.0" prefWidth="117.0" styleClass="register_btn" stylesheets="@game.css" text="Save" textFill="#333333">
          <font>
             <Font size="14.0" />
          </font>

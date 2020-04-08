@@ -96,7 +96,12 @@ public class ReportsController implements Initializable {
     public void goToHome(ActionEvent event) throws IOException{
     
          try {
-           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+           loader.setLocation(getClass().getResource("/game/home.fxml"));
+           Parent windowHome = loader.load();
+           HomeController hcon = loader.getController();
+           hcon.setUser(user);
+          // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
            Scene windowHomeScene = new Scene(windowHome);
            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
            window.setScene(windowHomeScene);

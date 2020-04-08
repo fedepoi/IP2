@@ -5,11 +5,14 @@
  */
 package controllers;
 
+import com.sun.javafx.stage.StageHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +35,7 @@ public class AlertboxController implements Initializable {
 
     @FXML
     private Button cancelAlert;
+  
     
     /**
      * Initializes the controller class.
@@ -56,8 +60,28 @@ public class AlertboxController implements Initializable {
         
         
         yesAlert = (Button) event.getSource();
-        Stage window = (Stage) yesAlert.getScene().getWindow();
-        window.close(); 
+        Stage window1 = (Stage) yesAlert.getScene().getWindow();
+        window1.close(); 
+        
+        try{
+        ObservableList<Stage> windows = StageHelper.getStages();
+       for (Stage w : windows) {
+       w.close();
+       
+       }
+        }
+        finally{
+        
+         try {
+           Parent windowHome = FXMLLoader.load(getClass().getResource("/game/registerSignIn.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+       } catch (IOException ex) {
+           Logger.getLogger(controllers.SettingsAdminController.class.getName()).log(Level.SEVERE, null, ex);
+       }   
+        }       
          
 }
 
