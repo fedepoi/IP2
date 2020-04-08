@@ -199,6 +199,14 @@ public class RegisterSignInController implements Initializable {
     DBConnect connection= new DBConnect();
     connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText(),a);
     
+    
+    
+    
+    
+    
+    
+    
+    
        
     }
     @FXML
