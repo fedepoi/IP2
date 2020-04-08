@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXPasswordField?>
 <VBox fx:id="SignInBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" styleClass="white-panel" stylesheets="@game.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterSignInController">
    <children>
       <Label fx:id="SingInLabel" text="Sign in" textFill="#d31c1c">
@@ -23,11 +24,11 @@
             <Insets left="20.0" right="20.0" top="20.0" />
          </padding>
       </JFXTextField>
-      <JFXTextField fx:id="PasswordTextSignIn" accessibleRole="PASSWORD_FIELD" focusColor="#f78c7b" labelFloat="true" promptText="Password" unFocusColor="#d0caca">
+      <JFXPasswordField fx:id="PasswordTextSignIn" accessibleRole="PASSWORD_FIELD" focusColor="#f78c7b" labelFloat="true" promptText="Password" unFocusColor="#d0caca">
          <padding>
             <Insets left="20.0" right="20.0" top="20.0" />
          </padding>
-      </JFXTextField>
+      </JFXPasswordField>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button fx:id="SignIn" mnemonicParsing="false" onAction="#openHome" prefHeight="30.0" prefWidth="120.0" styleClass="register_btn" stylesheets="@game.css" text="Sign in" HBox.hgrow="ALWAYS">

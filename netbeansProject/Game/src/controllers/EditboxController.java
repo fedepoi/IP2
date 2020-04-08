@@ -26,6 +26,7 @@ import model.Answer;
 import model.Category;
 import model.Question;
 import model.User;
+import com.jfoenix.controls.JFXPasswordField;
 
 /**
  * FXML Controller class

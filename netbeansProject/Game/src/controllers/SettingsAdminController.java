@@ -38,7 +38,7 @@ import model.Answer;
 import model.Category;
 import model.Question;
 import model.User;
-
+import com.jfoenix.controls.JFXPasswordField;
 /**
  * FXML Controller class
  *
@@ -80,7 +80,7 @@ public class SettingsAdminController implements Initializable {
     private JFXTextField EmailTextSetAdmin;
 
     @FXML
-    private JFXTextField PasswordTextSetAdmin;
+    private JFXPasswordField PasswordTextSetAdmin;
 
     @FXML
     private HBox HBoxregister;

@@ -33,7 +33,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Category;
 import model.User;
-
+import com.jfoenix.controls.JFXPasswordField;
 /**
  * FXML Controller class
  *

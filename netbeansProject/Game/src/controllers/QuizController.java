@@ -48,7 +48,7 @@ import model.Answer;
 import model.Question;
 import model.Score;
 import model.User;
-
+import com.jfoenix.controls.JFXPasswordField;
 
 /**
  * FXML Controller class

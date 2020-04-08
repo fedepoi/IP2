@@ -27,7 +27,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.User;
-
+import com.jfoenix.controls.JFXPasswordField;
 /**
  * FXML Controller class
  *
@@ -66,7 +66,7 @@ public class SettingsUserController implements Initializable {
     private JFXTextField EmailTextSetUser;
 
     @FXML
-    private JFXTextField PasswordTextSetUser;
+    private JFXPasswordField PasswordTextSetUser;
 
     @FXML
     private HBox HBoxregister;

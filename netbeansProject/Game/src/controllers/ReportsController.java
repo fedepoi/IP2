@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.User;
+import com.jfoenix.controls.JFXPasswordField;
 
 /**
  * FXML Controller class

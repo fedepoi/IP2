@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 
 <AnchorPane id="AnchorPane" fx:id="settingsUserPane" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsUserController">
     <stylesheets>
@@ -73,11 +74,11 @@
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXTextField fx:id="PasswordTextSetUser" focusColor="#f78c7b" labelFloat="true" promptText="Password" unFocusColor="#d0caca">
+            <JFXPasswordField fx:id="PasswordTextSetUser" focusColor="#f78c7b" labelFloat="true" promptText="Password" unFocusColor="#d0caca">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
-            </JFXTextField>
+            </JFXPasswordField>
             <HBox fx:id="HBoxregister" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <CheckBox fx:id="becomeAdminCheckBox" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="17.0" prefWidth="96.0" style="-fx-background-color: #ffffff;" text="Admin" HBox.hgrow="ALWAYS">

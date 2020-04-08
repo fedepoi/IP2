@@ -6,6 +6,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXPasswordField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -68,7 +69,7 @@ public class RegisterSignInController implements Initializable {
     private JFXTextField EmailTextReg;
 
     @FXML
-    private JFXTextField PasswordTextReg;
+    private JFXPasswordField PasswordTextReg;
 
     @FXML
     private HBox HBoxregister;
@@ -89,7 +90,7 @@ public class RegisterSignInController implements Initializable {
     private JFXTextField EmailTextSignIn;
 
     @FXML
-    private JFXTextField PasswordTextSignIn;
+    private JFXPasswordField PasswordTextSignIn;
 
     @FXML
     private Button SignIn;

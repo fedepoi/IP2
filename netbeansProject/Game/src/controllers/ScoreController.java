@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.User;
 import org.controlsfx.control.Rating;
+import com.jfoenix.controls.JFXPasswordField;
 
 /**
  * FXML Controller class
