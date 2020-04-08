@@ -6,6 +6,7 @@
 package game;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,6 +28,11 @@ public class Game extends Application {
         stage.setScene(scene);
         //stage.setResizable(true);
         stage.show();
+        
+        stage.setOnCloseRequest((event) -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     /**

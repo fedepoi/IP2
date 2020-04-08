@@ -190,23 +190,36 @@ public class RegisterSignInController implements Initializable {
     
      @FXML
     public void register(ActionEvent event) throws SQLException, IOException
-    {
+    {   int id;
         int a;
         if (checkBoxA.isSelected()==true)
         {
           a=1;
         } else a=0;
     DBConnect connection= new DBConnect();
-    connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText(),a);
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    id =connection.registerSQL(FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText(),a);
+    user=new User(id,FirstNameTextReg.getText(), LastNameTextReg.getText(), EmailTextReg.getText(), PasswordTextReg.getText(),checkBoxA.isSelected());
+    try {
+             FXMLLoader loader = new FXMLLoader();
+             loader.setLocation(getClass().getResource("/game/home.fxml"));
+             Parent windowHome = loader.load();
+              
+              
+            // Parent windowHome = FXMLLoader.load(getClass().getResource("/game/home.fxml"));
+           Scene windowHomeScene = new Scene(windowHome);
+           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+           window.setScene(windowHomeScene);
+           window.show();
+           
+            HomeController homeC = loader.getController();
+            homeC.setUser(user);
+            System.out.println(user.toString());
+           
+           
+       } catch (IOException ex) {
+           Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
+       }  
+        
        
     }
     @FXML
@@ -215,14 +228,7 @@ public class RegisterSignInController implements Initializable {
     DBConnect connection = new DBConnect();
     user=connection.signInSQL(EmailTextSignIn.getText(), PasswordTextSignIn.getText());
     }
-    
-    
-    
-    
-    
-    
-    
-    
+       
     
     
     

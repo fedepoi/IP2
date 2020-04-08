@@ -68,16 +68,20 @@ public class DBConnect {
     
     
     
-    public void registerSQL(String name , String sur,String mail,String pass,int admin) {
-    
+    public int registerSQL(String name , String sur,String mail,String pass,int admin) throws SQLException {
+    int lastId;
         String query = "insert into usertable (`firstname`,`lastname`,`email`,`password`,`admin` ) values ('"+name+"',"+"'"+sur+"',"+"'"+mail+"',"+"'"+pass+"',"+"'"+admin+"')";
-        try {
-            st.executeUpdate(query);
-     } catch (SQLException ex) {
-           System.out.println(  "error"+ex);
-        }
-        
+       
+            st.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
+             rs=st.getGeneratedKeys();
     
+             if(rs != null && rs.next()){
+                System.out.println("Generated questionId is:"+rs.getInt(1));
+                
+            }
+             lastId=rs.getInt(1);
+            
+    return lastId;
     }
     
     public User signInSQL(String mail,String password) throws SQLException{
