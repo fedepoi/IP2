@@ -13,20 +13,4 @@ public class Quiz {
     
     private int quizId;
     private Category cat;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
