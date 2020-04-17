@@ -7,17 +7,13 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
@@ -27,7 +23,6 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,13 +37,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Answer;
 import model.Question;
 import model.Score;
 import model.User;
-import com.jfoenix.controls.JFXPasswordField;
 
 /**
  * FXML Controller class
@@ -57,26 +50,11 @@ import com.jfoenix.controls.JFXPasswordField;
  */
 public class QuizController implements Initializable {
 
-   @FXML
-    private AnchorPane AnchorQuiz;
-
     @FXML
     private HBox MenuBar;
-
-    @FXML
-    private Button SettingsMenu;
-
-    @FXML
-    private Button ReportsMenu;
-
-    @FXML
-    private Button LogOut;
-
+    
     @FXML
     private TextArea textAreaQ;
-
-    @FXML
-    private Label questionCounter;
 
     @FXML
     private Button answer1;
@@ -94,9 +72,6 @@ public class QuizController implements Initializable {
     private Button nextQuestion;
 
     @FXML
-    private Button cancelQuestion;
-
-    @FXML
     private Button PlayB;
     
     @FXML
@@ -104,24 +79,6 @@ public class QuizController implements Initializable {
     
     @FXML
     private Button submitButton;
-
-    @FXML
-    private AnchorPane scorePane;
-
-    @FXML
-    private VBox scoreBox;
-
-    @FXML
-    private JFXTextField timeField;
-
-    @FXML
-    private VBox scoreSmallBox;
-
-    @FXML
-    private JFXTextField scoreField;
-
-    @FXML
-    private Button exitScoreButton;
     
     private int category;
     private int i=1;
@@ -407,7 +364,7 @@ public class QuizController implements Initializable {
            window.show();
            
            DBConnect conn = new DBConnect();
-           conn.addScore(result,strDate, timeSeconds.intValue(),rating);
+           conn.addScore(result,strDate, 30-timeSeconds.intValue(),rating);
            
            System.out.println(getCat());
            System.out.println(user.getId());
