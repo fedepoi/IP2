@@ -89,6 +89,8 @@ public class HomeController implements Initializable {
     private User user;
     
     public void setUser(User u){user=u;};
+    public Button getAddCatButton(){return this.AddCategory;}
+    public Button getAddQuesButton(){return this.AddQuestion;}
     
   
    

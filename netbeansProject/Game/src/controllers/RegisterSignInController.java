@@ -163,7 +163,7 @@ public class RegisterSignInController implements Initializable {
     private void openHome(ActionEvent event) throws IOException, SQLException{
       
           try {
-               FXMLLoader loader = new FXMLLoader();
+             FXMLLoader loader = new FXMLLoader();
              loader.setLocation(getClass().getResource("/game/home.fxml"));
              Parent windowHome = loader.load();
               
@@ -177,9 +177,13 @@ public class RegisterSignInController implements Initializable {
            
           HomeController homeC = loader.getController();
           signIn();
+         
           homeC.setUser(user);
           System.out.println(user.toString());
-           
+           if(user.getAdmin()==false){
+              homeC.getAddCatButton().setVisible(false);
+              homeC.getAddQuesButton().setVisible(false);
+          } 
            
        } catch (IOException ex) {
            Logger.getLogger(controllers.HomeController.class.getName()).log(Level.SEVERE, null, ex);
