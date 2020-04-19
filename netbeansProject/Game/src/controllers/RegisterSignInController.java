@@ -180,6 +180,7 @@ public class RegisterSignInController implements Initializable {
          
           homeC.setUser(user);
           System.out.println(user.toString());
+          
            if(user.getAdmin()==false){
               homeC.getAddCatButton().setVisible(false);
               homeC.getAddQuesButton().setVisible(false);
